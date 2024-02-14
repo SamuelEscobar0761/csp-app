@@ -1,0 +1,9 @@
+{
+    "navbar":{
+        "home": "Inicio",
+        "about_us": "Historia",
+        "contact": "Contacto",
+        "news": "Noticias",
+        "sports": "Deportes"
+    }
+}
