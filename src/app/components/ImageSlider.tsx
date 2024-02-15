@@ -18,7 +18,7 @@ export function ImageSlider() {
     
   return (
     <>
-    <Carousel transition={{type: "tween", duration: 2 }} className="rounded-xl" placeholder={undefined} autoplay={true} autoplayDelay={5000} loop={true}>
+    <Carousel transition={{type: "tween", duration: 2 }} placeholder={undefined} autoplay={true} autoplayDelay={5000} loop={true}>
       {images.map((item, index) => (
                 <img
                     key={index}
