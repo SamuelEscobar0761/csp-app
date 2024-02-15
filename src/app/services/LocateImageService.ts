@@ -16,7 +16,7 @@ export default class LocateImageService {
     }
 
     public async getImages(page: string, component: string){
-        const response = await fetch(`./../../public/locales/app/${page}/images.json`);
+        const response = await fetch(`./locales/app/${page}/images.json`);
         this.data = await response.json();
         const dataArray = Object.values(this.data);
         const filteredArray = dataArray.filter(item => item.component === component);
