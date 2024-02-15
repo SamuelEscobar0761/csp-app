@@ -1,12 +1,56 @@
+import { useEffect, useState } from 'react';
 import { ImageSlider } from '../components/ImageSlider';
 import Preview from '../components/Preview';
+import LocateImageService from '../services/LocateImageService';
+import { useTranslation } from 'react-i18next';
+import Image from '../interfaces/Image';
+
 
 export const HomePage = () => {
+    const [images_about_us, setImages_about_us] = useState<Image[]>([]);
+    const [images_areas, setImages_areas] = useState<Image[]>([]);
+    const [images_sport_areas, setImages_sport_areas] = useState<Image[]>([]);
+    const { t } = useTranslation('ns1');
+
+    useEffect(() => {
+        LocateImageService.getInstance().getImages("homepage", "about_us")
+            .then(images => {
+                setImages_about_us(images);
+            })
+            .catch(error => {
+                console.error('Error al obtener las imágenes:', error);
+            });
+
+        LocateImageService.getInstance().getImages("homepage", "areas")
+            .then(images => {
+                setImages_areas(images);
+            })
+            .catch(error => {
+                console.error('Error al obtener las imágenes:', error);
+            });
+
+        LocateImageService.getInstance().getImages("homepage", "sport_areas")
+            .then(images => {
+                setImages_sport_areas(images);
+            })
+            .catch(error => {
+                console.error('Error al obtener las imágenes:', error);
+            });
+
+    }, []);
+    
     return(
         <div className="justify-center items-center h-screen">
             <ImageSlider/>
-            <Preview img_position='left' title='Nuestra Historia' img_path='/assets/images/homepage/carousel/piscina.jpeg' description='Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam ullamcorper at dui sit amet pulvinar. Fusce nec congue lacus. Proin velit nisl, sagittis sed pellentesque ut, volutpat vehicula augue. Morbi at leo eros. Maecenas ac ultrices arcu, quis aliquet metus. Mauris porta mollis nunc. Curabitur ac nulla eu ipsum maximus luctus vel luctus est. Curabitur cursus sapien id tempus elementum. Duis nec congue magna. Curabitur imperdiet ac sem a consectetur. Morbi tristique vulputate justo, vitae eleifend lectus consequat a. Mauris pellentesque nibh quam, quis pretium augue ullamcorper sed. Integer pulvinar lacinia ante, vitae eleifend odio. Suspendisse lacinia sagittis risus, vel varius mi facilisis consectetur. Praesent elementum ornare erat a egestas. Curabitur in tristique lectus. Suspendisse dignissim elementum nibh. Nullam ut metus mi. Donec rutrum ultrices ligula, quis finibus velit convallis sit amet. Proin feugiat bibendum nisi at rutrum. Etiam eget ultricies sem, accumsan vulputate nulla. Suspendisse porta eu nisl non varius. Nullam ut laoreet velit. Maecenas elementum turpis vel mauris mollis mattis. Etiam in velit elementum, sodales urna non, egestas nulla. Duis tellus magna, blandit et auctor bibendum, tincidunt in est. Nunc hendrerit dictum nisi, at placerat odio pharetra vitae. Integer placerat quis nibh sit amet malesuada. Interdum et malesuada fames ac ante ipsum primis in faucibus. Curabitur eleifend vulputate tellus sit amet viverra. Sed tellus diam, congue non neque vitae, scelerisque imperdiet quam. Fusce sed ipsum faucibus, mollis lectus a, eleifend tortor. In ut placerat lacus. Nam felis libero, interdum at nunc eu, pulvinar accumsan ante. Nullam nibh ex, placerat quis purus sit amet, maximus tincidunt mi. Mauris quis gravida urna. Pellentesque ullamcorper dapibus dui at fringilla. Sed auctor rhoncus ex. Aliquam mattis eu enim in vehicula. Phasellus consequat malesuada vestibulum.'/>
-
+            {images_about_us.map((item, index) => (
+                <Preview key={index} img_position='left' title={t('homepage.about_us_title')} img_path={item.path} description={t('homepage.about_us_description')}/>
+            ))}
+            {images_areas.map((item, index) => (
+                <Preview key={index} img_position='right' title={t('homepage.areas_title')} img_path={item.path} description={t('homepage.areas_description')}/>
+            ))}
+            {images_sport_areas.map((item, index) => (
+                <Preview key={index} img_position='left' title={t('homepage.sport_areas_title')} img_path={item.path} description={t('homepage.sport_areas_description')}/>
+            ))}
         </div>
     );
 }

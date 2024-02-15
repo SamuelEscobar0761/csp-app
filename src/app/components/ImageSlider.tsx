@@ -1,9 +1,10 @@
 import { Carousel } from "@material-tailwind/react";
 import LocateImageService from "../services/LocateImageService";
 import { useEffect, useState } from "react";
+import Image from "../interfaces/Image";
 
 export function ImageSlider() {
-    const [images, setImages] = useState<[][]>([]);
+    const [images, setImages] = useState<Image[]>([]);
 
     useEffect(() => {
         LocateImageService.getInstance().getImages("homepage", "carousel")

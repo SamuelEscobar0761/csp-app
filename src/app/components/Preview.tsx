@@ -8,7 +8,7 @@ export default function Preview({ img_position, title, img_path, description }: 
     const title_description_style = { width: '50%', padding: '25px' };
   return (
     <div>
-      <Box sx={{ flexGrow: 1, display: 'flex', justifyContent: 'space-between', padding: '15px', backgroundColor: '#80AE8A' }}>
+      <Box sx={{ flexGrow: 1, display: 'flex', justifyContent: 'space-between', paddingX: '15px', paddingY: '30px', backgroundColor: '#80AE8A' }}>
         {img_position === 'left' ? (
           <>
             <div style={img_container_style}>
