@@ -9,7 +9,6 @@ import {useTranslation} from 'react-i18next';
 function Navbar() {
   const {t} = useTranslation('ns1');
   return (
-    
     <AppBar position="static">
       <Container maxWidth="xl">
         <Toolbar disableGutters>
