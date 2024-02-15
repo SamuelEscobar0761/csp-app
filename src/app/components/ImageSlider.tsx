@@ -27,7 +27,7 @@ export function ImageSlider() {
                     alt={`image ${index + 1}`}  // Se asigna un texto alternativo único para cada imagen
                     className="h-full w-full object-cover"
                 />
-            ))}
+      ))}
     </Carousel>
     </>
   );
