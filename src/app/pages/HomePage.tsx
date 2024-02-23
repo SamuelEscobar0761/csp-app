@@ -9,10 +9,19 @@ import Image from '../interfaces/Image';
 export const HomePage = () => {
     const [images_about_us, setImages_about_us] = useState<Image[]>([]);
     const [images_areas, setImages_areas] = useState<Image[]>([]);
+    const [carouselImages, setCarouselImages] = useState<Image[]>([]);
     const [images_sport_areas, setImages_sport_areas] = useState<Image[]>([]);
     const { t } = useTranslation('ns1');
 
     useEffect(() => {
+        LocateImageService.getInstance().getImages("homepage", "carousel")
+            .then(images => {
+                setCarouselImages(images);
+            })
+            .catch(error => {
+                console.error('Error al obtener las imágenes:', error);
+            });
+
         LocateImageService.getInstance().getImages("homepage", "about_us")
             .then(images => {
                 setImages_about_us(images);
@@ -38,10 +47,10 @@ export const HomePage = () => {
             });
 
     }, []);
-    
+
     return(
         <div className="justify-center items-center h-screen">
-            <ImageSlider/>
+            <ImageSlider images={carouselImages} />
             {images_about_us.map((item, index) => (
                 <Preview key={index} img_position='left' title={t('homepage.about_us_title')} img_path={item.path} description={t('homepage.about_us_description')}/>
             ))}
@@ -53,4 +62,5 @@ export const HomePage = () => {
             ))}
         </div>
     );
+    console.log(carouselImages)
 }

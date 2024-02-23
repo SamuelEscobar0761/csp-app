@@ -1,14 +1,15 @@
 import './App.css'
 import './i18n.ts'
 import NavBar from './app/layout/NavBar'
-import { HomePage } from './app/pages/HomePage.tsx'
+import { BrowserRouter as Router } from 'react-router-dom';
+import { AppRoutes } from './app/routes/AppRoutes.tsx';
 
 function App() {
   return (
-    <>
+    <Router>
       <NavBar/>
-      <HomePage/>
-    </>
+      <AppRoutes/>
+    </Router>
   )
 }
 

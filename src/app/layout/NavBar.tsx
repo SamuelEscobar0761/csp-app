@@ -1,7 +1,8 @@
 import { useTranslation } from 'react-i18next';
 import { useState } from 'react';
+import { Link } from 'react-router-dom';
 
-function Navbar() {
+export default function Navbar() {
   const { t } = useTranslation('ns1');
   const [hovered, setHovered] = useState(false);
 
@@ -22,14 +23,14 @@ function Navbar() {
   //</div>
 
   return (
-    <nav style={navbarStyle} className="bg-white dark:bg-gray-900 lg:fixed w-full z-20 top-0 start-0 border-b border-gray-200" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+    <nav style={navbarStyle} className="font-semibold bg-white dark:bg-gray-900 lg:fixed w-full z-20 top-0 start-0 border-b border-gray-200" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
         <div className="items-center justify-center w-full md:w-auto md:order-1 p-5">
           <ul className="flex flex-col md:flex-row justify-evenly w-full md:w-auto space-y-2 md:space-y-0 md:space-x-4">
             <li>
-              <a href="#" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-white md:p-0">{t('navbar.home')}</a>
+              <Link to="/home" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-white md:p-0">{t('navbar.home')}</Link>
             </li>
             <li>
-              <a href="#" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-white md:p-0">{t('navbar.about_us')}</a>
+              <Link to="/about_us" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-white md:p-0">{t('navbar.about_us')}</Link>
             </li>
             <li>
               <a href="#" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-white md:p-0">{t('navbar.contact')}</a>
@@ -47,5 +48,3 @@ function Navbar() {
 
   );
 }
-
-export default Navbar;

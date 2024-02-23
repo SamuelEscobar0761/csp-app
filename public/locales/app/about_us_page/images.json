@@ -1,0 +1,6 @@
+[
+    {"component": "carousel", "path": "/assets/images/homepage/carousel/patio_central.jpeg"},
+    {"component": "about_us", "path": "/assets/images/homepage/about_us/comedor_mesa.jpeg"},
+    {"component": "areas", "path": "/assets/images/homepage/areas/patio_principal.jpeg"},
+    {"component": "sport_areas", "path": "/assets/images/homepage/sport_areas/piscina_interior.jpeg"}
+]
