@@ -18,7 +18,7 @@ export function ImageSlider() {
 
     
   return (
-    <>
+    <div className="w-full ">
     <Carousel transition={{type: "tween", duration: 2 }} placeholder={undefined} autoplay={true} autoplayDelay={5000} loop={true}>
       {images.map((item, index) => (
                 <img
@@ -29,6 +29,6 @@ export function ImageSlider() {
                 />
       ))}
     </Carousel>
-    </>
+    </div>
   );
 }

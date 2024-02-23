@@ -1,8 +1,3 @@
-import AppBar from '@mui/material/AppBar';
-import Box from '@mui/material/Box';
-import Toolbar from '@mui/material/Toolbar';
-import Container from '@mui/material/Container';
-import Button from '@mui/material/Button';
 import { useTranslation } from 'react-i18next';
 import { useState } from 'react';
 
@@ -19,47 +14,37 @@ function Navbar() {
   };
 
   const navbarStyle = {
-    backgroundColor: hovered ? '#005A14' : 'rgba(0, 90, 20, 0.7)', // Cambia el color de fondo dependiendo si el mouse está sobre el navbar o no
+    backgroundColor: hovered ? '#005A14' : 'rgba(113, 194, 131, 0.6)', // Cambia el color de fondo dependiendo si el mouse está sobre el navbar o no
     transition: 'background-color 0.3s', // Añade una transición suave para el cambio de color de fondo
   };
 
-  const buttonStyle = { my: 2, color: 'white', display: 'block', fontSize: 16 };
-  
+  //<div className="max-w-screen-xl flex items-center justify-center mx-auto p-4">
+  //</div>
 
   return (
-    <AppBar position="static" sx={navbarStyle} onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
-      <Container maxWidth="xl">
-        <Toolbar disableGutters>
-          <Box sx={{ flexGrow: 1, display: 'flex', justifyContent:'space-evenly', paddingTop: '15px', paddingBottom: '15px'}}>
-              <Button
-                sx={buttonStyle}
-              >
-                {t('navbar.home')}
-              </Button>
-              <Button
-                sx={buttonStyle}
-              >
-                {t('navbar.about_us')}
-              </Button>
-              <Button
-                sx={buttonStyle}
-              >
-                {t('navbar.contact')}
-              </Button>
-              <Button
-                sx={buttonStyle}
-              >
-                {t('navbar.news')}
-              </Button>
-              <Button
-                sx={buttonStyle}
-              >
-                {t('navbar.sports')}
-              </Button>
-          </Box>
-        </Toolbar>
-      </Container>
-    </AppBar>
+    <nav style={navbarStyle} className="bg-white dark:bg-gray-900 lg:fixed w-full z-20 top-0 start-0 border-b border-gray-200" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+        <div className="items-center justify-center w-full md:w-auto md:order-1 p-5">
+          <ul className="flex flex-col md:flex-row justify-evenly w-full md:w-auto space-y-2 md:space-y-0 md:space-x-4">
+            <li>
+              <a href="#" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-white md:p-0">{t('navbar.home')}</a>
+            </li>
+            <li>
+              <a href="#" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-white md:p-0">{t('navbar.about_us')}</a>
+            </li>
+            <li>
+              <a href="#" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-white md:p-0">{t('navbar.contact')}</a>
+            </li>
+            <li>
+              <a href="#" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-white md:p-0">{t('navbar.news')}</a>
+            </li>
+            <li>
+              <a href="#" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-white md:p-0">{t('navbar.sports')}</a>
+            </li>
+          </ul>
+        </div>
+      
+    </nav>
+
   );
 }
 
