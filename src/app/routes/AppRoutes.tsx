@@ -10,7 +10,7 @@ export const AppRoutes = () => {
             <Route path="/contact" element={ <HomePage/> } />
             <Route path="/news" element={ <HomePage/> } />
             <Route path="/sports" element={ <HomePage/> } />
-            <Route path="/*" element={ <Navigate to='/' /> } />
+            <Route path="/*" element={ <Navigate to='/home' /> } />
         </Routes>
     );
 };
