@@ -1,16 +1,19 @@
 import { Navigate, Route, Routes } from "react-router-dom";
 import { HomePage } from "../pages/HomePage";
 import AboutUsPage from "../pages/AboutUsPage";
+import {ContactPage} from "../pages/ContactPage";
+import NewsPage from "../pages/NewsPage";
+import SportsPage from "../pages/SportsPage";
 
 export const AppRoutes = () => {
     return (
         <Routes>
-            <Route path="/home" element={ <HomePage/> } />
+            <Route path="/" element={ <HomePage/> } />
             <Route path="/about_us" element={ <AboutUsPage/> } />
-            <Route path="/contact" element={ <HomePage/> } />
-            <Route path="/news" element={ <HomePage/> } />
-            <Route path="/sports" element={ <HomePage/> } />
-            <Route path="/*" element={ <Navigate to='/home' /> } />
+            <Route path="/contact_us" element={ <ContactPage/> } />
+            <Route path="/news" element={ <NewsPage/> } />
+            <Route path="/sports" element={ <SportsPage/> } />
+            <Route path="/*" element={ <Navigate to='/' /> } />
         </Routes>
     );
 };

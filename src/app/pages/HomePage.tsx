@@ -62,5 +62,4 @@ export const HomePage = () => {
             ))}
         </div>
     );
-    console.log(carouselImages)
 }
