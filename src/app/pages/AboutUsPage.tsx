@@ -49,17 +49,18 @@ export default function AboutUsPage(){
 
     return(
         <div>
-            <ImageSlider images={images_about_us} text="Nuestra Historia"/>
+            <ImageSlider images={images_about_us} text={t('about_us_page.title')}/>
+            <h2 className={`pt-10 text-white bg-[#80AE8A] text-center text-5xl`}>{t('about_us_page.founder_title')}</h2>
             {founderImages.map((item, index) => (
-                <CatalogItem key={index} img_position='left' hiperTitle={t('about_us_page.founder_title')} img_path={item.path} description={t('about_us_page.founder_description')}/>
+                <CatalogItem key={index} img_position='left' img_path={item.path} description={t('about_us_page.founder_description')}/>
             ))}
             {chronologyImages.map((item, index) => (
                 <CatalogItem key={index} img_position='right' title={t('about_us_page.chronology_title')} img_path={item.path} description={t('about_us_page.chronology_description')}/>
             ))}
-            <div className="flex">
-                <RecognitionItem sections={3} image="/assets/images/homepage/areas/patio_principal.jpeg" title="Nombre" text="-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam cursus varius viverra. In magna ante, blandit sed ullamcorper quis, pulvinar sit -amet ex. Suspendisse risus felis, interdum et mauris fringilla, porttitor fringilla urna. Sed vel nunc diam. In purus libero, dictum quis tincidunt id, lobortis ac lorem. Suspendisse eu luctus est. Curabitur molestie arcu in turpis mattis, sed bibendum risus tempus. Fusce sit amet felis pharetra,"/>
-                <RecognitionItem sections={3} image="/assets/images/homepage/areas/patio_principal.jpeg" title="Nombre" text="-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam cursus varius viverra. In magna ante, blandit sed ullamcorper quis, pulvinar sit -amet ex. Suspendisse risus felis, interdum et mauris fringilla, porttitor fringilla urna. Sed vel nunc diam. In purus libero, dictum quis tincidunt id, lobortis ac lorem. Suspendisse eu luctus est. Curabitur molestie arcu in turpis mattis, sed bibendum risus tempus. Fusce sit amet felis pharetra,"/>
-                <RecognitionItem sections={3} image="/assets/images/homepage/areas/patio_principal.jpeg" title="Nombre" text="-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam cursus varius viverra. In magna ante, blandit sed ullamcorper quis, pulvinar sit -amet ex. Suspendisse risus felis, interdum et mauris fringilla, porttitor fringilla urna. Sed vel nunc diam. In purus libero, dictum quis tincidunt id, lobortis ac lorem. Suspendisse eu luctus est. Curabitur molestie arcu in turpis mattis, sed bibendum risus tempus. Fusce sit amet felis pharetra,"/>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 bg-[#80AE8A] p-4">
+                <RecognitionItem sections={1} image="/assets/images/homepage/areas/patio_principal.jpeg" title={t('about_us_page.recognition1_title')} text={t('about_us_page.recognition1_description')}/>
+                <RecognitionItem sections={1} image="/assets/images/homepage/areas/patio_principal.jpeg" title={t('about_us_page.recognition2_title')} text={t('about_us_page.recognition2_description')}/>
+                <RecognitionItem sections={1} image="/assets/images/homepage/areas/patio_principal.jpeg" title={t('about_us_page.recognition3_title')} text={t('about_us_page.recognition3_description')}/>
             </div>
         </div>
     );

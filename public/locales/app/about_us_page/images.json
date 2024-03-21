@@ -1,7 +1,7 @@
 [
     {"component": "carousel", "path": "/assets/images/homepage/carousel/patio_central.jpeg"},
-    {"component": "founder", "path": "/assets/images/homepage/carousel/patio_central.jpeg"},
-    {"component": "chronology", "path": "/assets/images/homepage/about_us/comedor_mesa.jpeg"},
+    {"component": "founder", "path": "/assets/images/sin_foto.jpg"},
+    {"component": "chronology", "path": "/assets/images/homepage/about_us/primera_foto.jpeg"},
     {"component": "catalog", "path": "/assets/images/homepage/areas/patio_principal.jpeg"},
     {"component": "catalog", "path": "/assets/images/homepage/sport_areas/piscina_interior.jpeg"}
 ]

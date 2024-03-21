@@ -4,9 +4,11 @@ import { ImageSlider } from "../components/ImageSlider";
 import LocateImageService from "../services/LocateImageService";
 import CatalogItem from "../components/CatalogItem";
 import RecognitionItem from "../components/RecognitionItem";
+import { useTranslation } from "react-i18next";
 
 export default function NewsPage(){
     const [images_about_us, setImages_about_us] = useState<Image[]>([]);
+    const { t } = useTranslation('ns1');
     useEffect(() => {
         LocateImageService.getInstance().getImages("about_us_page", "carousel")
             .then(images => {
@@ -18,23 +20,23 @@ export default function NewsPage(){
     }, []);
     return(
         <div>
-            <ImageSlider images={images_about_us} text="Noticias"/>
+            <ImageSlider images={images_about_us} text={t('news_page.title')}/>
             <div>
-                <CatalogItem img_path="public/assets/images/homepage/areas/patio_principal.jpeg" img_position="left" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sagittis risus sapien, quis congue diam sagittis non. Fusce eleifend gravida metus, nec tempus tortor efficitur sit amet. Vivamus sodales condimentum erat, eu pretium orci sagittis a. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla interdum odio lorem, vel consequat eros pretium efficitur. Pellentesque vel accumsan magna, nec blandit lorem. Nam pretium eu nisi et faucibus. Curabitur ut ligula fringilla, cursus tortor quis, fringilla nisl. Fusce sodales turpis eget vehicula accumsan. Donec feugiat tincidunt ornare. Quisque ligula eros, aliquam vel porttitor tincidunt, lobortis et arcu. Sed fermentum porttitor est, eu suscipit diam. Suspendisse tristique varius velit, eget sollicitudin diam mattis nec." hiperTitle="Eventos Cercanos y Noticias" title="Nombre-fecha"/>
-                <CatalogItem img_path="public/assets/images/homepage/areas/patio_principal.jpeg" img_position="right" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sagittis risus sapien, quis congue diam sagittis non. Fusce eleifend gravida metus, nec tempus tortor efficitur sit amet. Vivamus sodales condimentum erat, eu pretium orci sagittis a. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla interdum odio lorem, vel consequat eros pretium efficitur. Pellentesque vel accumsan magna, nec blandit lorem. Nam pretium eu nisi et faucibus. Curabitur ut ligula fringilla, cursus tortor quis, fringilla nisl. Fusce sodales turpis eget vehicula accumsan. Donec feugiat tincidunt ornare. Quisque ligula eros, aliquam vel porttitor tincidunt, lobortis et arcu. Sed fermentum porttitor est, eu suscipit diam. Suspendisse tristique varius velit, eget sollicitudin diam mattis nec." title="Nombre-fecha"/>
-                <CatalogItem img_path="public/assets/images/homepage/areas/patio_principal.jpeg" img_position="left" description="Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sagittis risus sapien, quis congue diam sagittis non. Fusce eleifend gravida metus, nec tempus tortor efficitur sit amet. Vivamus sodales condimentum erat, eu pretium orci sagittis a. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla interdum odio lorem, vel consequat eros pretium efficitur. Pellentesque vel accumsan magna, nec blandit lorem. Nam pretium eu nisi et faucibus. Curabitur ut ligula fringilla, cursus tortor quis, fringilla nisl. Fusce sodales turpis eget vehicula accumsan. Donec feugiat tincidunt ornare. Quisque ligula eros, aliquam vel porttitor tincidunt, lobortis et arcu. Sed fermentum porttitor est, eu suscipit diam. Suspendisse tristique varius velit, eget sollicitudin diam mattis nec." title="Nombre-fecha"/>
+                <h2 className="text-center mx-auto bg-[#80AE8A] text-white pt-10 md:pt-20 md:text-5xl text-3xl">{t('news_page.nearby_events_title')}</h2>
+                <CatalogItem img_path="/public/assets/images/sin_foto.jpg" img_position="left" description={t('news_page.events.0.description')} title={`${t('news_page.events.0.name')} - ${t('news_page.events.0.date')}`}/>
+                <CatalogItem img_path="/public/assets/images/sin_foto.jpg" img_position="left" description={t('news_page.events.1.description')} title={`${t('news_page.events.1.name')} - ${t('news_page.events.1.date')}`}/>
+                <CatalogItem img_path="/public/assets/images/sin_foto.jpg" img_position="left" description={t('news_page.events.2.description')} title={`${t('news_page.events.2.name')} - ${t('news_page.events.2.date')}`}/>
             </div>
-            <h2 className="bg-[#80AE8A] text-white text-5xl text-center">Calendario de fechas</h2>
-            <div className="flex">
-            <RecognitionItem sections={3} image="public/assets/images/homepage/areas/patio_principal.jpeg" title="Nombre - fecha"/>
-            <RecognitionItem sections={3} image="public/assets/images/homepage/areas/patio_principal.jpeg" title="Nombre - fecha"/>
-            <RecognitionItem sections={3} image="public/assets/images/homepage/areas/patio_principal.jpeg" title="Nombre - fecha"/>
+            <h2 className="text-center mx-auto bg-[#80AE8A] text-white pt-10 md:pt-20 md:text-5xl text-3xl">{t('news_page.calendar.title')}</h2>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 bg-[#80AE8A] p-4">
+                <RecognitionItem sections={1} image="/public/assets/images/sin_foto.jpg" title={`${t('news_page.calendar.0.name')} - ${t('news_page.calendar.0.date')}`}/>
+                <RecognitionItem sections={1} image="/public/assets/images/sin_foto.jpg" title={`${t('news_page.calendar.1.name')} - ${t('news_page.calendar.1.date')}`}/>
+                <RecognitionItem sections={1} image="/public/assets/images/sin_foto.jpg" title={`${t('news_page.calendar.2.name')} - ${t('news_page.calendar.2.date')}`}/>
+                <RecognitionItem sections={1} image="/public/assets/images/sin_foto.jpg" title={`${t('news_page.calendar.3.name')} - ${t('news_page.calendar.3.date')}`}/>
+                <RecognitionItem sections={1} image="/public/assets/images/sin_foto.jpg" title={`${t('news_page.calendar.4.name')} - ${t('news_page.calendar.4.date')}`}/>
+                <RecognitionItem sections={1} image="/public/assets/images/sin_foto.jpg" title={`${t('news_page.calendar.5.name')} - ${t('news_page.calendar.5.date')}`}/>
             </div>
-            <div className="flex">
-            <RecognitionItem sections={3} image="public/assets/images/homepage/areas/patio_principal.jpeg" title="Nombre - fecha"/>
-            <RecognitionItem sections={3} image="public/assets/images/homepage/areas/patio_principal.jpeg" title="Nombre - fecha"/>
-            <RecognitionItem sections={3} image="public/assets/images/homepage/areas/patio_principal.jpeg" title="Nombre - fecha"/>
-            </div>
+
         </div>
     );
 };

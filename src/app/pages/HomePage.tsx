@@ -49,7 +49,7 @@ export const HomePage = () => {
     }, []);
 
     return(
-        <div className="justify-center items-center h-screen">
+        <div className="justify-center items-center">
             <ImageSlider images={carouselImages} />
             {images_about_us.map((item, index) => (
                 <CatalogItem key={index} img_position='left' title={t('homepage.about_us_title')} img_path={item.path} description={t('homepage.about_us_description')}/>

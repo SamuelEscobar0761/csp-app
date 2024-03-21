@@ -3,7 +3,7 @@
     {"component": "carousel", "path": "/assets/images/homepage/carousel/gimnasio.jpeg"},
     {"component": "carousel", "path": "/assets/images/homepage/carousel/piscina.jpeg"},
     {"component": "carousel", "path": "/assets/images/homepage/carousel/parrillero_paleta.jpeg"},
-    {"component": "about_us", "path": "/assets/images/homepage/about_us/comedor_mesa.jpeg"},
+    {"component": "about_us", "path": "/assets/images/homepage/about_us/primera_foto.jpeg"},
     {"component": "areas", "path": "/assets/images/homepage/areas/patio_principal.jpeg"},
     {"component": "sport_areas", "path": "/assets/images/homepage/sport_areas/piscina_interior.jpeg"}
 ]
