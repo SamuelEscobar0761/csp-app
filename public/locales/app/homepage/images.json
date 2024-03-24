@@ -1,9 +1,9 @@
 [
-    {"component": "carousel", "path": "/assets/images/homepage/carousel/patio_central.jpeg"},
-    {"component": "carousel", "path": "/assets/images/homepage/carousel/gimnasio.jpeg"},
-    {"component": "carousel", "path": "/assets/images/homepage/carousel/piscina.jpeg"},
-    {"component": "carousel", "path": "/assets/images/homepage/carousel/parrillero_paleta.jpeg"},
-    {"component": "about_us", "path": "/assets/images/homepage/about_us/primera_foto.jpeg"},
-    {"component": "areas", "path": "/assets/images/homepage/areas/patio_principal.jpeg"},
-    {"component": "sport_areas", "path": "/assets/images/homepage/sport_areas/piscina_interior.jpeg"}
+    {"component": "carousel", "name": "patio_central", "path": "/assets/images/homepage/carousel/patio_central.jpeg"},
+    {"component": "carousel", "name": "gimnasio", "path": "/assets/images/homepage/carousel/gimnasio.jpeg"},
+    {"component": "carousel", "name": "piscina", "path": "/assets/images/homepage/carousel/piscina.jpeg"},
+    {"component": "carousel", "name": "parrillero_paleta", "path": "/assets/images/homepage/carousel/parrillero_paleta.jpeg"},
+    {"component": "about_us", "name": "primera_foto", "path": "/assets/images/homepage/about_us/primera_foto.jpeg"},
+    {"component": "areas", "name": "patio_principal", "path": "/assets/images/homepage/areas/patio_principal.jpeg"},
+    {"component": "sport_areas", "name": "piscina_interior", "path": "/assets/images/homepage/sport_areas/piscina_interior.jpeg"}
 ]

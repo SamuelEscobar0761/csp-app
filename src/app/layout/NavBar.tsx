@@ -33,13 +33,13 @@ export default function Navbar() {
               <Link to="/about_us" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-white md:p-0">{t('navbar.about_us')}</Link>
             </li>
             <li>
-              <a href="/contact_us" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-white md:p-0">{t('navbar.contact')}</a>
+              <Link to="/contact_us" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-white md:p-0">{t('navbar.contact')}</Link>
             </li>
             <li>
-              <a href="/news" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-white md:p-0">{t('navbar.news')}</a>
+              <Link to="/news" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-white md:p-0">{t('navbar.news')}</Link>
             </li>
             <li>
-              <a href="/sports" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-white md:p-0">{t('navbar.sports')}</a>
+              <Link to="/sports" className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-white md:p-0">{t('navbar.sports')}</Link>
             </li>
           </ul>
         </div>

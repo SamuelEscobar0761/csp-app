@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
 import { ImageSlider } from '../components/ImageSlider';
-import CatalogItem from '../components/CatalogItem';
-import LocateImageService from '../services/LocateImageService';
 import { useTranslation } from 'react-i18next';
+import LocateImageService from '../services/LocateImageService';
+import CatalogItem from '../components/CatalogItem';
 import Image from '../interfaces/Image';
 
 

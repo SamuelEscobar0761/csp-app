@@ -6,7 +6,7 @@ import ContactItem from "../components/ContactItem";
 import RecognitionItem from "../components/RecognitionItem";
 import { useTranslation } from "react-i18next";
 
-export function ContactPage(){
+export const ContactPage = () => {
     const [images_about_us, setImages_about_us] = useState<Image[]>([]);
     const { t } = useTranslation('ns1');
     useEffect(() => {
@@ -23,14 +23,14 @@ export function ContactPage(){
             <ImageSlider images={images_about_us} text={t('contact_us_page.title')}/>
             <h2 className={`pt-10 text-white bg-[#80AE8A] text-center text-5xl`}>Personal</h2>
             <div className={`md:flex`}>
-                <ContactItem sections={2} image={"/public/assets/images/sin_foto.jpg"} title={t('contact_us_page.staff.0.name')} text={t('contact_us_page.staff.0.description')} />
-                <ContactItem sections={2} image={"/public/assets/images/sin_foto.jpg"} title={t('contact_us_page.staff.1.name')} text={t('contact_us_page.staff.1.description')} />
+                <ContactItem sections={2} image={"/assets/images/sin_foto.jpg"} title={t('contact_us_page.staff.0.name')} text={t('contact_us_page.staff.0.description')} />
+                <ContactItem sections={2} image={"/assets/images/sin_foto.jpg"} title={t('contact_us_page.staff.1.name')} text={t('contact_us_page.staff.1.description')} />
             </div>
             <h2 className={`py-10 text-white bg-[#80AE8A] text-center text-5xl`}>Redes Sociales</h2>
             <div className={`md:flex`}>
-                <RecognitionItem image="/public/assets/images/sin_foto.jpg" sections={3} title={t('contact_us_page.social_networks.0.name')} text={t('contact_us_page.social_networks.0.description')}/>
-                <RecognitionItem image="/public/assets/images/sin_foto.jpg" sections={3} title={t('contact_us_page.social_networks.1.name')} text={t('contact_us_page.social_networks.1.description')}/>
-                <RecognitionItem image="/public/assets/images/sin_foto.jpg" sections={3} title={t('contact_us_page.social_networks.2.name')} text={t('contact_us_page.social_networks.2.description')}/>
+                <RecognitionItem image="/assets/images/sin_foto.jpg" sections={3} title={t('contact_us_page.social_networks.0.name')} text={t('contact_us_page.social_networks.0.description')}/>
+                <RecognitionItem image="/assets/images/sin_foto.jpg" sections={3} title={t('contact_us_page.social_networks.1.name')} text={t('contact_us_page.social_networks.1.description')}/>
+                <RecognitionItem image="/assets/images/sin_foto.jpg" sections={3} title={t('contact_us_page.social_networks.2.name')} text={t('contact_us_page.social_networks.2.description')}/>
             </div>
         </div>
     );

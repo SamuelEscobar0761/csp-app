@@ -1,7 +1,10 @@
 [
-    {"component": "carousel", "path": "/assets/images/homepage/carousel/patio_central.jpeg"},
-    {"component": "founder", "path": "/assets/images/sin_foto.jpg"},
-    {"component": "chronology", "path": "/assets/images/homepage/about_us/primera_foto.jpeg"},
-    {"component": "catalog", "path": "/assets/images/homepage/areas/patio_principal.jpeg"},
-    {"component": "catalog", "path": "/assets/images/homepage/sport_areas/piscina_interior.jpeg"}
+    {"component": "carousel", "name": "patio_central", "path": "/assets/images/homepage/carousel/patio_central.jpeg"},
+    {"component": "founder", "name": "sin_foto", "path": "/assets/images/sin_foto.jpg"},
+    {"component": "chronology", "name": "primera_foto", "path": "/assets/images/homepage/about_us/primera_foto.jpeg"},
+    {"component": "catalog", "name": "patio_central", "path": "/assets/images/homepage/areas/patio_principal.jpeg"},
+    {"component": "catalog", "name": "piscina_interior",  "path": "/assets/images/homepage/sport_areas/piscina_interior.jpeg"},
+    {"component": "recognition", "name": "tenis", "path": "/assets/images/sin_foto.jpg"},
+    {"component": "recognition", "name": "tenis", "path": "/assets/images/sin_foto.jpg"},
+    {"component": "recognition", "name": "tenis", "path": "/assets/images/sin_foto.jpg"}
 ]
