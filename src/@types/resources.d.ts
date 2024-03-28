@@ -3,10 +3,12 @@ interface Resources {
   "ns1": {
     "navbar": {
       "home": "Inicio",
-      "about_us": "Historia",
-      "contact": "Contacto",
-      "news": "Noticias",
-      "sports": "Deportes"
+      "about_us": "¿Quiénes somos?",
+      "sports": "Deportes",
+      "restaurant": "Restaurante y Snack",
+      "services": "Servicios",
+      "join_us": "Únete al Club",
+      "news": "Noticias"
     },
     "homepage": {
       "about_us_title": "Nuestra Historia",
