@@ -16,7 +16,7 @@ export default function RecognitionItem({ sections, image, title='', text='' }: 
     }, [sections, isHorizontal]);
 
     return (
-        <div className={`w-${width} mx-auto bg-white text-[#80AE8A] p-10 mb-5 md:mb-0 md:mr-0 last:mr-0`}>
+        <div className={`w-${width} mx-auto bg-white text-primary p-10 mb-5 md:mb-0 md:mr-0 last:mr-0`}>
             <img src={image} className={`aspect-square object-cover rounded-lg`} alt={title}/>
             <h2 className="sm:py-5 text-center text-3xl lg:text-5xl lg:py-10">{title}</h2>
             <p>{text}</p>

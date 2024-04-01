@@ -27,7 +27,7 @@ export default function CatalogItem({ img_position, title = "", img_path, descri
                             </div>
                         )}
                         <div style={title_description_style}>
-                            <h2 className="mx-auto bg-white text-primary md:text-8xl font-bold text-3xl">{title}</h2>
+                            <h2 className="mx-auto bg-white text-primary md:text-7xl font-bold text-3xl">{title}</h2>
                             <p className="mx-auto text-primary md:text-3xl text-1xl sm:pt-5 lg:pt-10">{description}</p>
                         </div>
                         {img_position === 'right'  && isHorizontal && (
