@@ -21,7 +21,7 @@ export default function ContactItem({sections, image, title, text}: {sections:nu
     };
 
     return(
-        <div className={`w-${width} mx-auto bg-[#80AE8A] text-white p-10 md:flex`}>
+        <div className={`w-${width} mx-auto bg-white text-[#80AE8A] p-10 md:flex`}>
             <img src={image} className={`w-1/4  object-cover rounded-lg`}/>
             <div>
                 <h2 className="p-5 text-3xl">{title}</h2>
