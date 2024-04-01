@@ -6,9 +6,7 @@ export default function CatalogItem({ img_position, title = "", img_path, descri
     const isHorizontal = useMediaQuery(theme.breakpoints.up('md'));
 
     const img_style = { width: '100%', borderRadius: '35px', padding: isHorizontal ? '20px' : '5px' }; // Se agrega padding solo si la pantalla es horizontal
-    const img_container_style = { width: isHorizontal ? '50%' : '100%', padding: isHorizontal ? '20px' : 0 }; // Se ajusta el ancho del contenedor de la imagen
-    const title_style = { display: 'flex', color: '#80AE8A', justifyContent: 'space-evenly' };
-    const description_style = { color: '#80AE8A', fontSize: 22 };
+    const img_container_style = { width: isHorizontal ? '50%' : '100%', padding: isHorizontal ? '20px' : 0 };
     const title_description_style = { padding: '25px', width: isHorizontal ? '50%' : '100%' }; // Se ajusta el ancho del contenedor del texto
 
     return (
@@ -29,8 +27,8 @@ export default function CatalogItem({ img_position, title = "", img_path, descri
                             </div>
                         )}
                         <div style={title_description_style}>
-                            <h2 style={title_style} className="mx-auto bg-white text-[#80AE8A] md:text-5xl text-3xl">{title}</h2>
-                            <p style={description_style} className="pt-10">{description}</p>
+                            <h2 className="mx-auto bg-white text-primary md:text-8xl font-bold text-3xl">{title}</h2>
+                            <p className="mx-auto text-primary md:text-3xl text-1xl sm:pt-5 lg:pt-10">{description}</p>
                         </div>
                         {img_position === 'right'  && isHorizontal && (
                             <div style={img_container_style}>
