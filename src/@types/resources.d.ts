@@ -103,11 +103,16 @@ interface Resources {
       ]
     },
     "restaurant_page": {
+      "restaurant_title": "Restaurante y Snack",
       "weekly_menu_title": "Menú Semanal",
       "main_menu_title": "Menú Comedor",
       "snack_menu_title": "Menú Snack"
     },
-    "join_us_page": {},
+    "join_us_page": {
+      "join_us_title": "Únete al club",
+      "tariff_title": "Tarifario",
+      "participation_title": "Participación"
+    },
     "news_page": {
       "title": "Noticias",
       "nearby_events_title": "Eventos Cercanos y Noticias",

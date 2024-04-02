@@ -23,4 +23,3 @@ export default function RecognitionItem({ sections, image, title='', text='' }: 
         </div>
     );
 };
-
