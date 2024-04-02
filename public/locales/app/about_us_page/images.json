@@ -1,5 +1,8 @@
 [
     {"component": "carousel", "name": "patio_central", "path": "/assets/images/homepage/carousel/patio_central.jpeg"},
+    {"component": "stories", "name": "tenis", "path": "/assets/images/sin_foto.jpg"},
+    {"component": "stories", "name": "tenis", "path": "/assets/images/sin_foto.jpg"},
+    {"component": "stories", "name": "tenis", "path": "/assets/images/sin_foto.jpg"},
     {"component": "founder", "name": "sin_foto", "path": "/assets/images/sin_foto.jpg"},
     {"component": "chronology", "name": "primera_foto", "path": "/assets/images/homepage/about_us/primera_foto.jpeg"},
     {"component": "catalog", "name": "patio_central", "path": "/assets/images/homepage/areas/patio_principal.jpeg"},

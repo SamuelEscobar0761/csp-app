@@ -7,10 +7,8 @@ import Image from '../interfaces/Image';
 
 
 export const HomePage = () => {
-    const [images_about_us, setImages_about_us] = useState<Image[]>([]);
-    const [images_areas, setImages_areas] = useState<Image[]>([]);
+    const [info_images, setInfo_images] = useState<Image[]>([]);
     const [carouselImages, setCarouselImages] = useState<Image[]>([]);
-    const [images_sport_areas, setImages_sport_areas] = useState<Image[]>([]);
     const { t } = useTranslation('ns1');
 
     useEffect(() => {
@@ -22,44 +20,31 @@ export const HomePage = () => {
                 console.error('Error al obtener las imágenes:', error);
             });
 
-        LocateImageService.getInstance().getImages("homepage", "about_us")
+        LocateImageService.getInstance().getImages("homepage", "club_info")
             .then(images => {
-                setImages_about_us(images);
+                setInfo_images(images);
             })
             .catch(error => {
                 console.error('Error al obtener las imágenes:', error);
             });
-
-        LocateImageService.getInstance().getImages("homepage", "areas")
-            .then(images => {
-                setImages_areas(images);
-            })
-            .catch(error => {
-                console.error('Error al obtener las imágenes:', error);
-            });
-
-        LocateImageService.getInstance().getImages("homepage", "sport_areas")
-            .then(images => {
-                setImages_sport_areas(images);
-            })
-            .catch(error => {
-                console.error('Error al obtener las imágenes:', error);
-            });
-
     }, []);
 
     return(
         <div className="justify-center items-center">
             <ImageSlider images={carouselImages} />
-            {images_about_us.map((item, index) => (
-                <CatalogItem key={index} img_position='left' title={t('homepage.about_us_title')} img_path={item.path} description={t('homepage.about_us_description')}/>
+            {info_images.map((item, index) => (
+                <img key={index} src={item.path} className='w-full h-96'/>
             ))}
-            {images_areas.map((item, index) => (
-                <CatalogItem key={index} img_position='right' title={t('homepage.areas_title')} img_path={item.path} description={t('homepage.areas_description')}/>
-            ))}
-            {images_sport_areas.map((item, index) => (
-                <CatalogItem key={index} img_position='left' title={t('homepage.sport_areas_title')} img_path={item.path} description={t('homepage.sport_areas_description')}/>
-            ))}
+            <h2 className='py-10 text-primary bg-white text-center text-7xl font-bold'>{t('homepage.last_release_title')}</h2>
+            <div className="flex justify-center ...">
+                <iframe src='\assets\pdfs\comunicado.pdf' className='w-2/3 h-svh'/>
+            </div>
+            <br/>
+            <br/>
+            <br/>
+            <div className="flex justify-center ...">
+                <img src='\assets\images\comunicados\comunicado.jpg' className='w-2/3'/>
+            </div>
         </div>
     );
 }

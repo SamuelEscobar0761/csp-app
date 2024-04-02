@@ -23,7 +23,7 @@ export default function Navbar() {
   //</div>
 
   return (
-    <nav style={navbarStyle} className="font-semibold bg-white dark:bg-gray-900 lg:fixed w-full h-15 z-20 top-0 start-0 border-b border-gray-200" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+    <nav style={navbarStyle} className="font-semibold lg:fixed w-full h-15 z-20 top-0 start-0 border-b border-gray-200" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
         <div className="items-center justify-center w-full md:w-auto md:order-1 p-5">
           <ul className="flex flex-col md:flex-row justify-evenly w-full md:w-auto space-y-2 md:space-y-0 md:space-x-4">
             <li>
