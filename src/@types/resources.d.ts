@@ -102,7 +102,11 @@ interface Resources {
         }
       ]
     },
-    "restaurant_page": {},
+    "restaurant_page": {
+      "weekly_menu_title": "Menú Semanal",
+      "main_menu_title": "Menú Comedor",
+      "snack_menu_title": "Menú Snack"
+    },
     "join_us_page": {},
     "news_page": {
       "title": "Noticias",
