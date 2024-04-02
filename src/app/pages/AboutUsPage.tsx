@@ -68,6 +68,7 @@ export const AboutUsPage = () => {
                 <iframe src='\assets\pdfs\comunicado.pdf' className='w-11/12 md:h-screen'/>
             </div>
             <h2 className={`py-10 text-primary bg-white text-center text-7xl font-bold`}>{t('about_us_page.memories_title')}</h2>
+            <p className="px-10 mx-auto text-primary md:text-3xl text-1xl sm:pt-5 lg:pt-10">{t('about_us_page.memories')}</p>
         </div>
     );
 };
