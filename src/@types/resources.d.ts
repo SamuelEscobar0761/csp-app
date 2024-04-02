@@ -21,8 +21,16 @@ interface Resources {
       "next": "Siguiente",
       "stories": [
         {
-          "title": "",
-          "description": ""
+          "title": "Titulo",
+          "description": "-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam cursus varius viverra. In magna ante, blandit sed ullamcorper quis, pulvinar sit -amet ex. Suspendisse risus felis, interdum et mauris fringilla, porttitor fringilla urna. Sed vel nunc diam. In purus libero, dictum quis tincidunt id, l-obortis ac lorem. Suspendisse eu luctus est. Curabitur molestie arcu in turpis mattis, sed bibendum risus tempus. Fusce sit amet felis pharetra,"
+        },
+        {
+          "title": "Titulo",
+          "description": "-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam cursus varius viverra. In magna ante, blandit sed ullamcorper quis, pulvinar sit -amet ex. Suspendisse risus felis, interdum et mauris fringilla, porttitor fringilla urna. Sed vel nunc diam. In purus libero, dictum quis tincidunt id, l-obortis ac lorem. Suspendisse eu luctus est. Curabitur molestie arcu in turpis mattis, sed bibendum risus tempus. Fusce sit amet felis pharetra,"
+        },
+        {
+          "title": "Titulo",
+          "description": "-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam cursus varius viverra. In magna ante, blandit sed ullamcorper quis, pulvinar sit -amet ex. Suspendisse risus felis, interdum et mauris fringilla, porttitor fringilla urna. Sed vel nunc diam. In purus libero, dictum quis tincidunt id, l-obortis ac lorem. Suspendisse eu luctus est. Curabitur molestie arcu in turpis mattis, sed bibendum risus tempus. Fusce sit amet felis pharetra,"
         }
       ],
       "goal_vision_title": "Misión y Visión",
@@ -34,6 +42,7 @@ interface Resources {
         "title": "Visión",
         "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sagittis risus sapien, quis congue diam sagittis non. Fusce eleifend gravida metus, nec tempus tortor efficitur sit amet. Vivamus sodales condimentum erat, eu pretium orci sagittis a. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla interdum odio lorem, vel consequat eros pretium efficitur. Pellentesque vel accumsan magna, nec blandit lorem. Nam pretium eu nisi et faucibus. Curabitur ut ligula fringilla, cursus tortor quis, fringilla nisl. Fusce sodales turpis eget vehicula accumsan. Donec feugiat tincidunt ornare. Quisque ligula eros, aliquam vel porttitor tincidunt, lobortis et arcu. Sed fermentum porttitor est, eu suscipit diam. Suspendisse tristique varius velit, eget sollicitudin diam mattis nec."
       },
+      "directory_title": "Directorio",
       "directory": [
         {
           "name": "Nombre",
