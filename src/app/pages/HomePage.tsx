@@ -2,7 +2,6 @@ import { useEffect, useState } from 'react';
 import { ImageSlider } from '../components/ImageSlider';
 import { useTranslation } from 'react-i18next';
 import LocateImageService from '../services/LocateImageService';
-import CatalogItem from '../components/CatalogItem';
 import Image from '../interfaces/Image';
 
 
@@ -42,6 +41,7 @@ export const HomePage = () => {
             <br/>
             <br/>
             <br/>
+            <p className="px-10 mx-auto text-primary md:text-3xl text-1xl sm:pt-5 lg:pt-10">Necesario: Escoger entre pdf e imagen</p><br/>
             <div className="flex justify-center ...">
                 <img src='\assets\images\comunicados\comunicado.jpg' className='w-2/3'/>
             </div>
