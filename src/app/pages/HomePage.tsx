@@ -30,7 +30,7 @@ export const HomePage = () => {
 
     return(
         <div className="justify-center items-center">
-            <ImageSlider images={carouselImages} />
+            <ImageSlider images={carouselImages} text='Inicio'/>
             {info_images.map((item, index) => (
                 <img key={index} src={item.path} className='w-full h-96'/>
             ))}

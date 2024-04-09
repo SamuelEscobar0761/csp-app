@@ -9,7 +9,7 @@ export function ImageSlider({ images, text = "" }: { images: Image[]; text?: str
   }
 
   return (
-    <div className="w-full relative">
+    <div className="relative w-full h-screen">
       <Carousel
         transition={{ type: "tween", duration: 2 }}
         placeholder={undefined}
@@ -29,7 +29,7 @@ export function ImageSlider({ images, text = "" }: { images: Image[]; text?: str
       </Carousel>
       {/* Agregar el texto centrado si hay texto */}
       {text && (
-        <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-center text-white lg:text-9xl sm:text-6xl font-bold">
+        <div className="absolute inset-0 flex items-center justify-center text-center text-white lg:text-9xl md:text-7xl text-5xl font-bold">
           {text}
         </div>
       )}
