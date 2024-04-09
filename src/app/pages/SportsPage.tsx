@@ -10,7 +10,7 @@ export const SportsPage = () => {
     const [images_about_us, setImages_about_us] = useState<Image[]>([]);
     const { t } = useTranslation('ns1');
     useEffect(() => {
-        LocateImageService.getInstance().getImages("about_us_page", "carousel")
+        LocateImageService.getInstance().getImages("sportspage", "carousel")
             .then(images => {
                 setImages_about_us(images);
             })

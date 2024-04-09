@@ -15,7 +15,7 @@ export function ImageSlider({ images, text = "" }: { images: Image[]; text?: str
         placeholder={undefined}
         autoplay={true}
         autoplayDelay={5000}
-        // loop={true}
+        loop={true}
       >
         {/* Mapear solo si images es un array */}
         {images.map((item, index) => (

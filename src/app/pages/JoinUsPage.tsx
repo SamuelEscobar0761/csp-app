@@ -9,7 +9,7 @@ export const JoinUsPage = () => {
     const { t } = useTranslation('ns1');
 
     useEffect(() => {
-        LocateImageService.getInstance().getImages("about_us_page", "carousel")
+        LocateImageService.getInstance().getImages("join_us_page", "carousel")
             .then(images => {
                 setImagesCarousel(images);
             })

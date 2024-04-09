@@ -62,7 +62,7 @@ export default function Navbar() {
       <div className="hidden md:flex items-center w-full h-full">
         <ul className="flex justify-center items-center w-full h-full">
           <li className='flex-grow mx-5 lg:ml-32 relative'>
-            <img src='/assets/images/logos/logo_largo.svg' alt="Logo" />
+            <img src='/assets/images/logos/logo_simple.svg' alt="Logo" className='h-16 white_logo'/>
           </li>
           <li className='flex-grow p-2'>
             <Link to="/home" onClick={() => scrollToTop("home")} className="block py-2 px-3 text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-white md:p-0 text-center">{t('navbar.home')}</Link>
