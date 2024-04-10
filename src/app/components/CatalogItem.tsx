@@ -1,5 +1,6 @@
 import { Box, useMediaQuery } from "@mui/material";
 import { useTheme } from "@mui/material/styles";
+import { JumpLine } from "../services/FormatTextService";
 
 export default function CatalogItem({ img_position, title = "", img_path, description }: { img_position: 'right' | 'left', title?: string, img_path: string, description: string }) {
     const theme = useTheme();
@@ -28,7 +29,7 @@ export default function CatalogItem({ img_position, title = "", img_path, descri
                         )}
                         <div style={title_description_style}>
                             <h2 className="mx-auto bg-white text-primary md:text-7xl font-bold text-3xl">{title}</h2>
-                            <p className="mx-auto text-primary md:text-3xl text-1xl sm:pt-5 lg:pt-10">{description}</p>
+                            <p className="mx-auto text-primary md:text-3xl text-1xl sm:pt-5 lg:pt-10"><JumpLine texto={description}/></p>
                         </div>
                         {img_position === 'right'  && isHorizontal && (
                             <div style={img_container_style}>
