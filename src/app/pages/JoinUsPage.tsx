@@ -21,10 +21,16 @@ export const JoinUsPage = () => {
     return(
         <div>
             <ImageSlider images={imagesCarousel} text={t('join_us_page.join_us_title')}/>
+            <br id='tariff'/>
+            <br/>
+            <br/>
             <h2 className="py-10 text-primary bg-white text-center text-7xl font-bold`">{t('join_us_page.tariff_title')}</h2>
             <div className="flex justify-center ...">
                 <img src='\assets\images\sin_foto.jpg' className='w-2/3'/>
             </div>
+            <br id='participation'/>
+            <br/>
+            <br/>
             <h2 className="py-10 text-primary bg-white text-center text-7xl font-bold`">{t('join_us_page.participation_title')}</h2>
             <div className="flex justify-center ...">
                 <img src='\assets\images\sin_foto.jpg' className='w-2/3'/>

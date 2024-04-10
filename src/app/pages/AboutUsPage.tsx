@@ -49,7 +49,7 @@ export const AboutUsPage = () => {
             <br/>
             <h2 className={`py-10 text-primary bg-white text-center text-7xl font-bold`}>{t('about_us_page.title')}</h2>
             <div className="flex justify-center ...">
-                <img src="/assets/images/historia/historia1.jpeg" className="w-11/12 h-96 rounded-[29px]"/>
+                <img src="/assets/images/historia/historia1.jpeg" className="w-11/12 h-auto rounded-[29px]"/>
             </div>
             <div className="p-10">
                 <p className="text-primary bg-white text-3xl"><JumpLine texto={t('about_us_page.resume')}/></p>
