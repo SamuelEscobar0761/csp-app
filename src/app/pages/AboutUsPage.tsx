@@ -47,41 +47,48 @@ export const AboutUsPage = () => {
             <br id='history'/>
             <br/>
             <br/>
-            <h2 className={`py-10 text-primary bg-white text-center text-7xl font-bold`}>{t('about_us_page.title')}</h2>
+            <h2 className={`py-10 text-primary bg-white text-center text-4xl md:text-5xl lg:text-7xl font-bold`}>{t('about_us_page.title')}</h2>
             <div className="flex justify-center ...">
                 <img src="/assets/images/historia/historia1.jpeg" className="w-11/12 h-auto rounded-[29px]"/>
             </div>
             <div className="p-10">
-                <p className="text-primary bg-white text-3xl"><JumpLine texto={t('about_us_page.resume')}/></p>
+                <p className="text-primary bg-white md:text-3xl text-xl"><JumpLine texto={t('about_us_page.resume')}/></p>
             </div>
             {stories.map((item, index) => (
                 storiesImages.length > 0 && (
-                    <CatalogItem key={index} img_position='right' img_path={storiesImages[index].path} title={item.title} description={item.description}/>
+                    <CatalogItem
+                        key={index}
+                        img_position={index % 2 === 0 ? 'left' : 'right'}
+                        img_path={storiesImages[index].path}
+                        description={item.description}
+                    />
                 )
             ))}
             <br id='directory'/>
             <br/>
             <br/>
-            <h2 className={`py-10 text-primary bg-white text-center text-7xl font-bold`}><JumpLine texto={t('about_us_page.directory_title')}/></h2>
+            <h2 className={`py-10 text-primary bg-white text-center text-4xl md:text-5xl lg:text-7xl font-bold`}><JumpLine texto={t('about_us_page.directory_title')}/></h2>
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 bg-white p-4">
                 {directors.map((item, index) => (
                     directorsImages.length > 0 && (
-                        <RecognitionItem key={index} sections={1} image={directorsImages[index].path} title={item.name} text={item.description}/>
+                        <RecognitionItem key={index} sections={1} image={directorsImages[index].path} title={item.name} subtitle={item.position}/>
                     )
                 ))}
             </div>
             <br id='statutes'/>
             <br/>
             <br/>
-            <h2 className={`py-10 text-primary bg-white text-center text-7xl font-bold`}>{t('about_us_page.statutes_regulations_title')}</h2>
+            <h2 className={`py-10 text-primary bg-white text-center text-4xl md:text-5xl lg:text-7xl font-bold`}>{t('about_us_page.statutes_regulations_title')}</h2>
             <div className="flex justify-center ...">
                 <iframe src='\assets\pdfs\comunicado.pdf' className='w-11/12 md:h-screen'/>
             </div>
             <br id='memories'/>
             <br/>
             <br/>
-            <h2 className={`py-10 text-primary bg-white text-center text-7xl font-bold`}>{t('about_us_page.memories_title')}</h2>
-            <p className="px-10 mx-auto text-primary md:text-3xl text-1xl sm:pt-5 lg:pt-10">{t('about_us_page.memories')}</p>
+            <h2 className={`py-10 text-primary bg-white text-center text-4xl md:text-5xl lg:text-7xl font-bold`}>{t('about_us_page.memories_title')}</h2>
+            <div className="flex justify-center ...">
+                <iframe src='\assets\pdfs\comunicado.pdf' className='w-11/12 md:h-screen'/>
+            </div>
         </div>
     );
 };

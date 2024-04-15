@@ -57,7 +57,7 @@ export default function Navbar() {
 
   return (
     <div>
-    <nav style={navbarStyle} className="font-semibold lg:fixed w-full h-24 z-20 hidden md:block" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
+    <nav style={navbarStyle} className="font-semibold md:fixed w-full h-24 z-20 hidden md:block" onMouseEnter={handleMouseEnter} onMouseLeave={handleMouseLeave}>
       {/* Desktop Navbar */}
       <div className="hidden md:flex items-center w-full h-full">
         <ul className="flex justify-center items-center w-full h-full">
@@ -91,28 +91,28 @@ export default function Navbar() {
             {sportsExpanded && (
               <ul className="absolute top-full left-0 w-full bg-primary-400 md:shadow-md rounded-lg text-center text-gray-900">
                 <li className='md:p-2 md:hover:text-white'>
-                  <a href="#natacion" onClick={() => setSportsExpanded(false)}>Natacion</a>
+                  <Link to='/swimming' onClick={() => { scrollToTop("swimming"); setSportsExpanded(false); }} className="md:p-2 md:hover:text-white">Natación</Link>
                 </li>
                 <li className='md:p-2 md:hover:text-white'>
-                  <a href="#tenis" onClick={() => setSportsExpanded(false)}>Tenis</a>
+                  <Link to='/tennis' onClick={() => { scrollToTop("swimming"); setSportsExpanded(false); }} className="md:p-2 md:hover:text-white">Tenis</Link>
                 </li>
                 <li className='md:p-2 md:hover:text-white'>
-                  <a href="#raquet" onClick={() => setSportsExpanded(false)}>Raquet</a>
+                  <Link to='/racket' onClick={() => { scrollToTop("swimming"); setSportsExpanded(false); }} className="md:p-2 md:hover:text-white">Raquet</Link>
                 </li>
                 <li className='md:p-2 md:hover:text-white'>
-                  <a href="#paleta" onClick={() => setSportsExpanded(false)}>Paleta</a>
+                  <Link to='/paddle' onClick={() => { scrollToTop("swimming"); setSportsExpanded(false); }} className="md:p-2 md:hover:text-white">Paleta</Link>
                 </li>
                 <li className='md:p-2 md:hover:text-white'>
-                  <a href="#futbol" onClick={() => setSportsExpanded(false)}>Fútbol</a>
+                  <Link to='/football' onClick={() => { scrollToTop("swimming"); setSportsExpanded(false); }} className="md:p-2 md:hover:text-white">Fútbol</Link>
                 </li>
                 <li className='md:p-2 md:hover:text-white'>
-                  <a href="#gimnasio" onClick={() => setSportsExpanded(false)}>Gimnasio</a>
+                  <Link to='/gym' onClick={() => { scrollToTop("swimming"); setSportsExpanded(false); }} className="md:p-2 md:hover:text-white">Gimnasio</Link>
                 </li>
                 <li className='md:p-2 md:hover:text-white'>
-                  <a href="#ciclismo" onClick={() => setSportsExpanded(false)}>Ciclismo</a>
+                  <Link to='/cycling' onClick={() => { scrollToTop("swimming"); setSportsExpanded(false); }} className="md:p-2 md:hover:text-white">Ciclismo</Link>
                 </li>
                 <li className='md:p-2 md:hover:text-white'>
-                  <a href="#wally" onClick={() => setSportsExpanded(false)}>Wally</a>
+                  <Link to='/wally' onClick={() => { scrollToTop("swimming"); setSportsExpanded(false); }} className="md:p-2 md:hover:text-white">Wally</Link>
                 </li>
               </ul>
             )}

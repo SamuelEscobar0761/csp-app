@@ -16,21 +16,21 @@ interface Resources {
     "about_us_page": {
       "carousel": "¿Quiénes Somos?",
       "title": "Nuestra Historia",
-      "resume": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam cursus varius viverra. In magna ante, blandit sed ullamcorper quis, pulvinar sit amet ex. Suspendisse risus felis, interdum et mauris fringilla, porttitor fringilla urna. Sed vel nunc diam. In purus libero, dictum quis tincidunt id, lobortis ac lorem. Suspendisse eu luctus est. Curabitur molestie arcu in turpis mattis, sed bibendum risus tempus. Fusce sit amet felis pharetra, commodo elit quis, convallis velit. Aliquam erat volutpat. Sed mattis vulputate elit in euismod. Cras non mauris felis. Cras ac orci venenatis, dapibus dolor et, pellentesque ipsum. Donec vel interdum nisl, sed ultricies tortor. Mauris ornare justo odio, non viverra magna venenatis ut. Maecenas finibus ipsum ligula, quis bibendum velit placerat a. Aenean vel nunc nisl. Cras lacinia dolor vitae erat mattis dapibus. Mauris vel quam ac turpis molestie fermentum.",
+      "resume": "En la ciudad de La Paz a Horas 17:00 del dia 20 de Octubre de 1960, se reunieron directivos y empleados de Yacimientos Petroliferos Fiscales Bolivianos, con el objeto de Fundar el Club Social Petrolero, Institución Social, Cultural y Deportiva. Creada con el fin de fomentar la confraternidad entre todos los trabajadores de esa Institución.",
       "prev": "Anterior",
       "next": "Siguiente",
       "stories": [
         {
           "title": "Titulo",
-          "description": "-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam cursus varius viverra. In magna ante, blandit sed ullamcorper quis, pulvinar sit -amet ex. Suspendisse risus felis, interdum et mauris fringilla, porttitor fringilla urna. Sed vel nunc diam. In purus libero, dictum quis tincidunt id, l-obortis ac lorem. Suspendisse eu luctus est. Curabitur molestie arcu in turpis mattis, sed bibendum risus tempus. Fusce sit amet felis pharetra,"
+          "description": "Los asistentes a esa Reunión, fueron los siguientes:\nIng. Reynaldo Muñoz Reyes, Agustin, Arq. Agustin Villarroel Antezana, Ing René Morató Vargas, Ing. Hugo Castrillo Mercado, Dr. Jaime Encinas Peñaranda, Dr. Enrique Aparicio Chopitea, Dr. Javier Ossio Quezada, Lic. Hugo Arturo Diaz Rodriguez, Lic. José Candia Navarro y Sr. José Ramón Escobar.\n\nEn dicha oportunidad y como decisión muy. importante, resolvieron considerar como Socios Fundadores, a los siguientes señores:\nJosé Paz Estenssoro, Alfonso Romero Loza, Enrique Mariaca Bilbao, Agustin Villarroel Antezana, René Morató Vargas, Felix Celso Reyes, Reynaldo Muñoz Reyes, Miguel Tejada Velasco, Hugo Castrillo Mercado Oscar Rolando Suárez Castellón, Carlos Ibarguen Ceballos, Hugo Arturo Diaz Rodriguez, José Candia Navarro, José Ramon Escobar, Enrique Aparicio Chopitea, Javier Ossio Quezada, Francisco Torrez Bracamonte y Jaime Encinas Peñaranda."
         },
         {
           "title": "Titulo",
-          "description": "-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam cursus varius viverra. In magna ante, blandit sed ullamcorper quis, pulvinar sit -amet ex. Suspendisse risus felis, interdum et mauris fringilla, porttitor fringilla urna. Sed vel nunc diam. In purus libero, dictum quis tincidunt id, l-obortis ac lorem. Suspendisse eu luctus est. Curabitur molestie arcu in turpis mattis, sed bibendum risus tempus. Fusce sit amet felis pharetra,"
+          "description": "A continuación, se designó una Directiva Ad-doc, que tenia por misión especial, la Redacción de los Estatutos del Club Social Petrolero y la Convocatoria a Elecciones definitivas. La mencionada Directiva, quedó conformada por:\nPRESIDENTE; Ing. Reynaldo Muñoz Reyes\nVOCAL: Lic. Hugo Arturo Diaz Rodriguez\nVOCAL: Dr. Jaime Encinas Peñaranda\nVOCAL: Sr. José Ramón Escobar\n\nFinalmente,se trataron aspectos de financiación con el objeto de procurar la base económica de la flamante Institución\n\nA horas 17:50, se levantó la sesión y como garantia de fidelidad de lo sucedido, firman el presente Acta, todos los Socios Fundadores asistentes"
         },
         {
           "title": "Titulo",
-          "description": "-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam cursus varius viverra. In magna ante, blandit sed ullamcorper quis, pulvinar sit -amet ex. Suspendisse risus felis, interdum et mauris fringilla, porttitor fringilla urna. Sed vel nunc diam. In purus libero, dictum quis tincidunt id, l-obortis ac lorem. Suspendisse eu luctus est. Curabitur molestie arcu in turpis mattis, sed bibendum risus tempus. Fusce sit amet felis pharetra,"
+          "description": "En fecha 18 de Enero de 1961, se solicita al señor Ministro de Gobierno, Justicia e Inmigración, Copia Legalizada de la Resolución Suprema de Aprobación de Estatutos y Reconocimiento de Personeria Juridica de la Institución, la cual se Registró en fecha 16 del mismo mes, bajo el Número de Resolución Suprema 100694, habiendo firmado el original el Dr. Victor Paz Estenssoro, Presidente Constitucional de la República, el Cnel. Eduardo Rivas Ugalde, Ministro de Gobierno, Justicia e Inmigración, dando conformidad a la misma, el sefor Mario Pando Monje, Oficial Mayor de Gobierno.\n\nA partir de ésa fecha, el Club Social Petrolero, empezó la tramitación correspondiente por ante el Servicio de Impuestos Nacionales, Derechos Reales y la Honorable Alcaldía Municipal de La Paz."
         }
       ],
       "goal_vision_title": "Misión y Visión",
@@ -45,21 +45,36 @@ interface Resources {
       "directory_title": "Directorio",
       "directory": [
         {
-          "name": "Nombre",
-          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sagittis risus sapien, quis congue diam sagittis non. Fusce eleifend gravida metus, nec tempus tortor efficitur sit amet. Vivamus sodales condimentum erat, eu pretium orci sagittis a. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla interdum odio lorem, vel consequat eros pretium efficitur. Pellentesque vel accumsan magna, nec blandit lorem. Nam pretium eu nisi et faucibus. Curabitur ut ligula fringilla, cursus tortor quis, fringilla nisl. Fusce sodales turpis eget vehicula accumsan. Donec feugiat tincidunt ornare. Quisque ligula eros, aliquam vel porttitor tincidunt, lobortis et arcu. Sed fermentum porttitor est, eu suscipit diam. Suspendisse tristique varius velit, eget sollicitudin diam mattis nec."
+          "name": "Tito David Sánchez López",
+          "position": "Presidente"
         },
         {
-          "name": "Nombre",
-          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sagittis risus sapien, quis congue diam sagittis non. Fusce eleifend gravida metus, nec tempus tortor efficitur sit amet. Vivamus sodales condimentum erat, eu pretium orci sagittis a. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla interdum odio lorem, vel consequat eros pretium efficitur. Pellentesque vel accumsan magna, nec blandit lorem. Nam pretium eu nisi et faucibus. Curabitur ut ligula fringilla, cursus tortor quis, fringilla nisl. Fusce sodales turpis eget vehicula accumsan. Donec feugiat tincidunt ornare. Quisque ligula eros, aliquam vel porttitor tincidunt, lobortis et arcu. Sed fermentum porttitor est, eu suscipit diam. Suspendisse tristique varius velit, eget sollicitudin diam mattis nec."
+          "name": "Yuri Luis Tirado Villarroel",
+          "position": "Vicepresidente"
         },
         {
-          "name": "Nombre",
-          "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sagittis risus sapien, quis congue diam sagittis non. Fusce eleifend gravida metus, nec tempus tortor efficitur sit amet. Vivamus sodales condimentum erat, eu pretium orci sagittis a. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla interdum odio lorem, vel consequat eros pretium efficitur. Pellentesque vel accumsan magna, nec blandit lorem. Nam pretium eu nisi et faucibus. Curabitur ut ligula fringilla, cursus tortor quis, fringilla nisl. Fusce sodales turpis eget vehicula accumsan. Donec feugiat tincidunt ornare. Quisque ligula eros, aliquam vel porttitor tincidunt, lobortis et arcu. Sed fermentum porttitor est, eu suscipit diam. Suspendisse tristique varius velit, eget sollicitudin diam mattis nec."
+          "name": "Eliana Teresa Siles Ortiz",
+          "position": "Secretario General"
+        },
+        {
+          "name": "Marid Alberto Benavides",
+          "position": "Director de Regimen Interno"
+        },
+        {
+          "name": "Carlos Agramont Salinas",
+          "position": "Director Tesorero"
+        },
+        {
+          "name": "Álvaro Raúl Gumiel Gantier",
+          "position": "Director de Deportes"
+        },
+        {
+          "name": "Daniel Mancilla Campos",
+          "position": "Director Vocal"
         }
       ],
       "statutes_regulations_title": "Estatutos y Reglamentos",
-      "memories_title": "Memorias",
-      "memories": "-Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam cursus varius viverra. In magna ante, blandit sed ullamcorper quis, pulvinar sit -amet ex. Suspendisse risus felis, interdum et mauris fringilla, porttitor fringilla urna. Sed vel nunc diam. In purus libero, dictum quis tincidunt id, l-obortis ac lorem. Suspendisse eu luctus est. Curabitur molestie arcu in turpis mattis, sed bibendum risus tempus. Fusce sit amet felis pharetra, -Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam cursus varius viverra. In magna ante, blandit sed ullamcorper quis, pulvinar sit -amet ex. Suspendisse risus felis, interdum et mauris fringilla, porttitor fringilla urna. Sed vel nunc diam. In purus libero, dictum quis tincidunt id, l-obortis ac lorem. Suspendisse eu luctus est. Curabitur molestie arcu in turpis mattis, sed bibendum risus tempus. Fusce sit amet felis pharetra, -Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam cursus varius viverra. In magna ante, blandit sed ullamcorper quis, pulvinar sit -amet ex. Suspendisse risus felis, interdum et mauris fringilla, porttitor fringilla urna. Sed vel nunc diam. In purus libero, dictum quis tincidunt id, l-obortis ac lorem. Suspendisse eu luctus est. Curabitur molestie arcu in turpis mattis, sed bibendum risus tempus. Fusce sit amet felis pharetra, -Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam cursus varius viverra. In magna ante, blandit sed ullamcorper quis, pulvinar sit -amet ex. Suspendisse risus felis, interdum et mauris fringilla, porttitor fringilla urna. Sed vel nunc diam. In purus libero, dictum quis tincidunt id, l-obortis ac lorem. Suspendisse eu luctus est. Curabitur molestie arcu in turpis mattis, sed bibendum risus tempus. Fusce sit amet felis pharetra, -Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam cursus varius viverra. In magna ante, blandit sed ullamcorper quis, pulvinar sit -amet ex. Suspendisse risus felis, interdum et mauris fringilla, porttitor fringilla urna. Sed vel nunc diam. In purus libero, dictum quis tincidunt id, l-obortis ac lorem. Suspendisse eu luctus est. Curabitur molestie arcu in turpis mattis, sed bibendum risus tempus. Fusce sit amet felis pharetra, "
+      "memories_title": "Memorias"
     },
     "sports_page": {
       "title": "Disciplinas Deportivas",
@@ -101,6 +116,38 @@ interface Resources {
           "description": "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin sagittis risus sapien, quis congue diam sagittis non. Fusce eleifend gravida metus, nec tempus tortor efficitur sit amet. Vivamus sodales condimentum erat, eu pretium orci sagittis a. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Nulla interdum odio lorem, vel consequat eros pretium efficitur. Pellentesque vel accumsan magna, nec blandit lorem. Nam pretium eu nisi et faucibus. Curabitur ut ligula fringilla, cursus tortor quis, fringilla nisl. Fusce sodales turpis eget vehicula accumsan. Donec feugiat tincidunt ornare. Quisque ligula eros, aliquam vel porttitor tincidunt, lobortis et arcu. Sed fermentum porttitor est, eu suscipit diam. Suspendisse tristique varius velit, eget sollicitudin diam mattis nec."
         }
       ]
+    },
+    "swimming_page": {
+      "swimming_page_title": "Natación",
+      "information_title": "Información"
+    },
+    "tennis_page": {
+      "tennis_page_title": "Tenis",
+      "information_title": "Información"
+    },
+    "racket_page": {
+      "racket_page_title": "Racquet",
+      "information_title": "Información"
+    },
+    "paddle_page": {
+      "paddle_page_title": "Paleta",
+      "information_title": "Información"
+    },
+    "football_page": {
+      "football_page_title": "Fútbol",
+      "information_title": "Información"
+    },
+    "gym_page": {
+      "gym_page_title": "Gimnasio",
+      "information_title": "Información"
+    },
+    "cycling_page": {
+      "cycling_page_title": "Ciclismo",
+      "information_title": "Información"
+    },
+    "wally_page": {
+      "wally_page_title": "Wally",
+      "information_title": "Información"
     },
     "restaurant_page": {
       "restaurant_title": "Restaurante y Snack",
