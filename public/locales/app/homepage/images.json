@@ -1,8 +1,0 @@
-[
-    {"component": "carousel", "name": "piscina1", "path": "/assets/images/piscina/piscina1.jpeg"},
-    {"component": "carousel", "name": "piscina2", "path": "/assets/images/piscina/piscina2.jpeg"},
-    {"component": "carousel", "name": "patio1", "path": "/assets/images/patio/patio1.jpeg"},
-    {"component": "carousel", "name": "tenis", "path": "/assets/images/tenis/tenis1.jpeg"},
-    {"component": "club_info", "name": "info", "path": "/assets/images/sin_foto.jpg"}
-    
-]
