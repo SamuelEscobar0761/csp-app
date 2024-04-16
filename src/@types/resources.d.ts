@@ -8,7 +8,25 @@ interface Resources {
       "restaurant": "Restaurante y Snack",
       "services": "Servicios",
       "join_us": "Únete al Club",
-      "news": "Noticias"
+      "news": "Noticias",
+      "history": "Historia",
+      "directory": "Directorio",
+      "statute": "Estatuto",
+      "regulations": "Reglamentos",
+      "memories": "Memorias",
+      "swimming": "Natación",
+      "tennis": "Tenis",
+      "racket": "Racquet",
+      "padding": "Paleta",
+      "football": "Fútbol",
+      "gym": "Gimnasio",
+      "cycling": "Ciclismo",
+      "wally": "Wally",
+      "weekly_menu": "Menú Semanal",
+      "main_menu": "Menú comedor",
+      "snack_menu": "Menú Snack",
+      "tariff": "Tarifario",
+      "participation": "Participación"
     },
     "homepage": {
       "last_release_title": "Último Comunicado"
@@ -57,7 +75,7 @@ interface Resources {
           "position": "Secretario General"
         },
         {
-          "name": "Marid Alberto Benavides",
+          "name": "Mario Alberto Benavides",
           "position": "Director de Regimen Interno"
         },
         {
@@ -73,7 +91,8 @@ interface Resources {
           "position": "Director Vocal"
         }
       ],
-      "statutes_regulations_title": "Estatutos y Reglamentos",
+      "statute_title": "Estatuto",
+      "regulations": "Reglamentos",
       "memories_title": "Memorias"
     },
     "sports_page": {

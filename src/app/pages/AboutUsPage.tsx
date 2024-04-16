@@ -6,6 +6,7 @@ import Image from '../interfaces/Image';
 import CatalogItem from "../components/CatalogItem";
 import RecognitionItem from "../components/RecognitionItem";
 import { JumpLine } from "../services/FormatTextService";
+import Test from "../components/pdf_reader/PdfReader";
 
 export const AboutUsPage = () => {
     const [images_about_us, setImages_about_us] = useState<Image[]>([]);
@@ -78,9 +79,16 @@ export const AboutUsPage = () => {
             <br id='statutes'/>
             <br/>
             <br/>
-            <h2 className={`py-10 text-primary bg-white text-center text-4xl md:text-5xl lg:text-7xl font-bold`}>{t('about_us_page.statutes_regulations_title')}</h2>
-            <div className="flex justify-center ...">
-                <iframe src='\assets\pdfs\comunicado.pdf' className='w-11/12 md:h-screen'/>
+            <h2 className={`py-10 text-primary bg-white text-center text-4xl md:text-5xl lg:text-7xl font-bold`}>{t('about_us_page.statute_title')}</h2>
+            <div id="pdf-container" className="flex justify-center ...">
+                <Test pdfPath="/assets/pdfs/estatuto.pdf"/>
+            </div>
+            <br id='regulations'/>
+            <br/>
+            <br/>
+            <h2 className={`py-10 text-primary bg-white text-center text-4xl md:text-5xl lg:text-7xl font-bold`}>{t('about_us_page.regulations')}</h2>
+            <div id="pdf-container" className="flex justify-center ...">
+                
             </div>
             <br id='memories'/>
             <br/>

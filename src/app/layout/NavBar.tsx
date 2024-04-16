@@ -72,16 +72,19 @@ export default function Navbar() {
             {aboutUsExpanded && (
               <ul className="absolute top-full left-0 w-full bg-primary-400 md:shadow-md rounded-lg text-center text-gray-900">
                 <li className='md:p-2 md:hover:text-white'>
-                  <a href="#history" onClick={() => setAboutUsExpanded(false)}>History</a>
+                  <a href="#history" onClick={() => setAboutUsExpanded(false)}>{t('navbar.history')}</a>
                 </li>
                 <li className='md:p-2 md:hover:text-white'>
-                  <a href="#directory" onClick={() => setAboutUsExpanded(false)}>Directory</a>
+                  <a href="#directory" onClick={() => setAboutUsExpanded(false)}>{t('navbar.directory')}</a>
                 </li>
                 <li className='md:p-2 md:hover:text-white'>
-                  <a href="#statutes" onClick={() => setAboutUsExpanded(false)}>Statutes</a>
+                  <a href="#statutes" onClick={() => setAboutUsExpanded(false)}>{t('navbar.statute')}</a>
                 </li>
                 <li className='md:p-2 md:hover:text-white'>
-                  <a href="#memories" onClick={() => setAboutUsExpanded(false)}>Memories</a>
+                  <a href="#regulations" onClick={() => setAboutUsExpanded(false)}>{t('navbar.regulations')}</a>
+                </li>
+                <li className='md:p-2 md:hover:text-white'>
+                  <a href="#memories" onClick={() => setAboutUsExpanded(false)}>{t('navbar.memories')}</a>
                 </li>
               </ul>
             )}
@@ -91,28 +94,28 @@ export default function Navbar() {
             {sportsExpanded && (
               <ul className="absolute top-full left-0 w-full bg-primary-400 md:shadow-md rounded-lg text-center text-gray-900">
                 <li className='md:p-2 md:hover:text-white'>
-                  <Link to='/swimming' onClick={() => { scrollToTop("swimming"); setSportsExpanded(false); }} className="md:p-2 md:hover:text-white">Natación</Link>
+                  <Link to='/swimming' onClick={() => { scrollToTop("swimming"); setSportsExpanded(false); }} className="md:p-2 md:hover:text-white">{t('navbar.swimming')}</Link>
                 </li>
                 <li className='md:p-2 md:hover:text-white'>
-                  <Link to='/tennis' onClick={() => { scrollToTop("swimming"); setSportsExpanded(false); }} className="md:p-2 md:hover:text-white">Tenis</Link>
+                  <Link to='/tennis' onClick={() => { scrollToTop("swimming"); setSportsExpanded(false); }} className="md:p-2 md:hover:text-white">{t('navbar.tennis')}</Link>
                 </li>
                 <li className='md:p-2 md:hover:text-white'>
-                  <Link to='/racket' onClick={() => { scrollToTop("swimming"); setSportsExpanded(false); }} className="md:p-2 md:hover:text-white">Raquet</Link>
+                  <Link to='/racket' onClick={() => { scrollToTop("swimming"); setSportsExpanded(false); }} className="md:p-2 md:hover:text-white">{t('navbar.racket')}</Link>
                 </li>
                 <li className='md:p-2 md:hover:text-white'>
-                  <Link to='/paddle' onClick={() => { scrollToTop("swimming"); setSportsExpanded(false); }} className="md:p-2 md:hover:text-white">Paleta</Link>
+                  <Link to='/paddle' onClick={() => { scrollToTop("swimming"); setSportsExpanded(false); }} className="md:p-2 md:hover:text-white">{t('navbar.padding')}</Link>
                 </li>
                 <li className='md:p-2 md:hover:text-white'>
-                  <Link to='/football' onClick={() => { scrollToTop("swimming"); setSportsExpanded(false); }} className="md:p-2 md:hover:text-white">Fútbol</Link>
+                  <Link to='/football' onClick={() => { scrollToTop("swimming"); setSportsExpanded(false); }} className="md:p-2 md:hover:text-white">{t('navbar.football')}</Link>
                 </li>
                 <li className='md:p-2 md:hover:text-white'>
-                  <Link to='/gym' onClick={() => { scrollToTop("swimming"); setSportsExpanded(false); }} className="md:p-2 md:hover:text-white">Gimnasio</Link>
+                  <Link to='/gym' onClick={() => { scrollToTop("swimming"); setSportsExpanded(false); }} className="md:p-2 md:hover:text-white">{t('navbar.gym')}</Link>
                 </li>
                 <li className='md:p-2 md:hover:text-white'>
-                  <Link to='/cycling' onClick={() => { scrollToTop("swimming"); setSportsExpanded(false); }} className="md:p-2 md:hover:text-white">Ciclismo</Link>
+                  <Link to='/cycling' onClick={() => { scrollToTop("swimming"); setSportsExpanded(false); }} className="md:p-2 md:hover:text-white">{t('navbar.cycling')}</Link>
                 </li>
                 <li className='md:p-2 md:hover:text-white'>
-                  <Link to='/wally' onClick={() => { scrollToTop("swimming"); setSportsExpanded(false); }} className="md:p-2 md:hover:text-white">Wally</Link>
+                  <Link to='/wally' onClick={() => { scrollToTop("swimming"); setSportsExpanded(false); }} className="md:p-2 md:hover:text-white">{t('navbar.wally')}</Link>
                 </li>
               </ul>
             )}
@@ -122,13 +125,13 @@ export default function Navbar() {
             {restaurantExpanded && (
               <ul className="absolute top-full left-0 w-full bg-primary-400 md:shadow-md rounded-lg text-center text-gray-900">
                 <li className='md:p-2 md:hover:text-white'>
-                  <a href="#weekly" onClick={() => setRestaurantExpanded(false)}>Menú Semanal</a>
+                  <a href="#weekly" onClick={() => setRestaurantExpanded(false)}>{t('navbar.weekly_menu')}</a>
                 </li>
                 <li className='md:p-2 md:hover:text-white'>
-                  <a href="#main" onClick={() => setRestaurantExpanded(false)}>Menú Comedor</a>
+                  <a href="#main" onClick={() => setRestaurantExpanded(false)}>{t('navbar.main_menu')}</a>
                 </li>
                 <li className='md:p-2 md:hover:text-white'>
-                  <a href="#snack" onClick={() => setRestaurantExpanded(false)}>Menú Snack</a>
+                  <a href="#snack" onClick={() => setRestaurantExpanded(false)}>{t('navbar.snack_menu')}</a>
                 </li>
               </ul>
             )}
@@ -138,10 +141,10 @@ export default function Navbar() {
             {joinUsExpanded && (
               <ul className="absolute top-full left-0 w-full bg-primary-400 md:shadow-md rounded-lg text-center text-gray-900">
                 <li className='md:p-2 md:hover:text-white'>
-                  <a href="#tariff" onClick={() => setJoinUsExpanded(false)}>Tarifario</a>
+                  <a href="#tariff" onClick={() => setJoinUsExpanded(false)}>{t('navbar.tariff')}</a>
                 </li>
                 <li className='md:p-2 md:hover:text-white'>
-                  <a href="#participation" onClick={() => setJoinUsExpanded(false)}>Participación</a>
+                  <a href="#participation" onClick={() => setJoinUsExpanded(false)}>{t('navbar.participation')}</a>
                 </li>
               </ul>
             )}

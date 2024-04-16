@@ -1,0 +1,14 @@
+body {
+    font-family: sans-serif;
+  }
+  
+  .react-pdf__Document {
+    display: inline-block;
+  }
+  
+  .react-pdf__Page {
+    position: relative;
+    width: 600;
+    height: 872px;
+  }
+  
