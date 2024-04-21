@@ -7,6 +7,7 @@ import CatalogItem from "../components/CatalogItem";
 import RecognitionItem from "../components/RecognitionItem";
 import { JumpLine } from "../services/FormatTextService";
 import Test from "../components/pdf_reader/PdfReader";
+import { obtenerPdf } from "../services/FirebaseService";
 
 export const AboutUsPage = () => {
     const [images_about_us, setImages_about_us] = useState<Image[]>([]);
@@ -15,6 +16,8 @@ export const AboutUsPage = () => {
     const { t } = useTranslation('ns1');
     const stories = t("about_us_page.stories", { returnObjects: true });
     const directors = t("about_us_page.directory", { returnObjects: true });
+    const pdfPathEstatuto = "pdfs/estatuto.pdf";
+    const [fileUrl, setFileUrl] = useState<string | null>(null);
 
     useEffect(() => {
         LocateImageService.getInstance().getImages("about_us_page", "carousel")
@@ -41,6 +44,16 @@ export const AboutUsPage = () => {
                 console.error('Error al obtener las imágenes:', error);
         });
     }, []);
+
+    useEffect(() => {
+        const fetchPdf = async () => {
+          const url = await obtenerPdf(pdfPathEstatuto);
+          setFileUrl(url);
+          console.log(url);
+        };
+    
+        fetchPdf();
+      }, [pdfPathEstatuto]);
 
     return(
         <div>
@@ -81,7 +94,7 @@ export const AboutUsPage = () => {
             <br/>
             <h2 className={`py-10 text-primary bg-white text-center text-4xl md:text-5xl lg:text-7xl font-bold`}>{t('about_us_page.statute_title')}</h2>
             <div id="pdf-container" className="flex justify-center ...">
-                <Test pdfPath="/assets/pdfs/estatuto.pdf"/>
+                <Test pdfPath={fileUrl}/>
             </div>
             <br id='regulations'/>
             <br/>

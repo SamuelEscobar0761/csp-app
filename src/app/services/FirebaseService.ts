@@ -1,5 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, get } from "firebase/database";
+import {getStorage, ref as refStorage, getDownloadURL} from "firebase/storage";
 
 // Configuración de Firebase
 const firebaseConfig = {
@@ -16,6 +17,7 @@ const firebaseConfig = {
 // Inicializar Firebase
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
+const storage = getStorage();
 
 // Función para obtener una noticia específica
 export const obtenerNoticia = async () => {
@@ -32,6 +34,17 @@ export const obtenerNoticia = async () => {
     }
   } catch (error) {
     console.error('Error al obtener los datos:', error);
+    return null;
+  }
+};
+
+export const obtenerPdf = async (pdfPath: string): Promise<string | null> => {
+  try {
+    const pdfRef = refStorage(storage, pdfPath);
+    const downloadUrl = await getDownloadURL(pdfRef);
+    return downloadUrl;  // Esto ahora devuelve la URL de descarga directa
+  } catch (error) {
+    console.error('Error al obtener la URL del pdf', error);
     return null;
   }
 };
