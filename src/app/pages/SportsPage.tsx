@@ -35,6 +35,14 @@ export const SportsPage = () => {
                 <CatalogItem img_path="/assets/images/sin_foto.jpg" img_position="left" description={t('sports_page.awards.0.description')} title={t('sports_page.awards.0.name')}/>
                 <CatalogItem img_path="/assets/images/sin_foto.jpg" img_position="left" description={t('sports_page.awards.1.description')} title={t('sports_page.awards.1.name')}/>
             </div>
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-4 p-4">
+                <RecognitionItem sections={1} image="/assets/images/sin_foto.jpg" title={`${t('news_page.calendar.0.name')} - ${t('news_page.calendar.0.date')}`}/>
+                <RecognitionItem sections={1} image="/assets/images/sin_foto.jpg" title={`${t('news_page.calendar.1.name')} - ${t('news_page.calendar.1.date')}`}/>
+                <RecognitionItem sections={1} image="/assets/images/sin_foto.jpg" title={`${t('news_page.calendar.2.name')} - ${t('news_page.calendar.2.date')}`}/>
+                <RecognitionItem sections={1} image="/assets/images/sin_foto.jpg" title={`${t('news_page.calendar.3.name')} - ${t('news_page.calendar.3.date')}`}/>
+                <RecognitionItem sections={1} image="/assets/images/sin_foto.jpg" title={`${t('news_page.calendar.4.name')} - ${t('news_page.calendar.4.date')}`}/>
+                <RecognitionItem sections={1} image="/assets/images/sin_foto.jpg" title={`${t('news_page.calendar.5.name')} - ${t('news_page.calendar.5.date')}`}/>
+            </div>
         </div>
     );
 };

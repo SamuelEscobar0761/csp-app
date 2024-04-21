@@ -6,7 +6,7 @@ import Image from '../interfaces/Image';
 import CatalogItem from "../components/CatalogItem";
 import RecognitionItem from "../components/RecognitionItem";
 import { JumpLine } from "../services/FormatTextService";
-import Test from "../components/pdf_reader/PdfReader";
+import PdfViewer from "../components/pdf_reader/PdfReader";
 import { obtenerPdf } from "../services/FirebaseService";
 
 export const AboutUsPage = () => {
@@ -49,7 +49,6 @@ export const AboutUsPage = () => {
         const fetchPdf = async () => {
           const url = await obtenerPdf(pdfPathEstatuto);
           setFileUrl(url);
-          console.log(url);
         };
     
         fetchPdf();
@@ -94,22 +93,24 @@ export const AboutUsPage = () => {
             <br/>
             <h2 className={`py-10 text-primary bg-white text-center text-4xl md:text-5xl lg:text-7xl font-bold`}>{t('about_us_page.statute_title')}</h2>
             <div id="pdf-container" className="flex justify-center ...">
-                <Test pdfPath={fileUrl}/>
+                {fileUrl ? <PdfViewer pdfPath={fileUrl} /> : <div>Cargando PDF...</div>}
             </div>
             <br id='regulations'/>
             <br/>
             <br/>
             <h2 className={`py-10 text-primary bg-white text-center text-4xl md:text-5xl lg:text-7xl font-bold`}>{t('about_us_page.regulations')}</h2>
             <div id="pdf-container" className="flex justify-center ...">
-                
+                {fileUrl ? <PdfViewer pdfPath={fileUrl} /> : <div>Cargando PDF...</div>}
             </div>
             <br id='memories'/>
             <br/>
             <br/>
             <h2 className={`py-10 text-primary bg-white text-center text-4xl md:text-5xl lg:text-7xl font-bold`}>{t('about_us_page.memories_title')}</h2>
             <div className="flex justify-center ...">
-                <iframe src='\assets\pdfs\comunicado.pdf' className='w-11/12 md:h-screen'/>
+                {fileUrl ? <PdfViewer pdfPath={fileUrl} /> : <div>Cargando PDF...</div>}
             </div>
+            <br/>
+            <br/>
         </div>
     );
 };
