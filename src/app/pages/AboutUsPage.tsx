@@ -7,7 +7,7 @@ import CatalogItem from "../components/CatalogItem";
 import RecognitionItem from "../components/RecognitionItem";
 import { JumpLine } from "../services/FormatTextService";
 import PdfViewer from "../components/pdf_reader/PdfReader";
-import { obtenerPdf } from "../services/FirebaseService";
+import { obtenerFile } from "../services/FirebaseService";
 
 export const AboutUsPage = () => {
     const [images_about_us, setImages_about_us] = useState<Image[]>([]);
@@ -47,7 +47,7 @@ export const AboutUsPage = () => {
 
     useEffect(() => {
         const fetchPdf = async () => {
-          const url = await obtenerPdf(pdfPathEstatuto);
+          const url = await obtenerFile(pdfPathEstatuto);
           setFileUrl(url);
         };
     

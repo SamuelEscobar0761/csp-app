@@ -38,9 +38,9 @@ export const obtenerNoticia = async () => {
   }
 };
 
-export const obtenerPdf = async (pdfPath: string): Promise<string | null> => {
+export const obtenerFile = async (path: string): Promise<string | null> => {
   try {
-    const pdfRef = refStorage(storage, pdfPath);
+    const pdfRef = refStorage(storage, path);
     const downloadUrl = await getDownloadURL(pdfRef);
     return downloadUrl;  // Esto ahora devuelve la URL de descarga directa
   } catch (error) {
