@@ -4,29 +4,19 @@ import { useTranslation } from 'react-i18next';
 import LocateImageService from '../services/LocateImageService';
 import Image from '../interfaces/Image';
 import { obtenerFile } from '../services/FirebaseService';
-import LoadingScreen from '../components/LoadingScreen';
 
 export const HomePage = () => {
     const [info_images, setInfo_images] = useState<Image[]>([]);
     const [carouselImages, setCarouselImages] = useState<Image[]>([]);
-    const [loading, setLoading] = useState(true);
     const { t } = useTranslation('ns1');
 
     useEffect(() => {
         LocateImageService.getInstance().getImages("homepage", "carousel")
-        .then(images => {
-            Promise.all(images.map(async (item) => ({
-                ...item,
-                url: await obtenerFile(item.path) // This can resolve to string or null
-            })))
-            .then(imagesWithUrls => {
-                setCarouselImages(imagesWithUrls); // Set the images with URLs
-                setLoading(false);
-            });
-        })
-        .catch(error => {
-            console.error('Error al obtener las imágenes:', error);
-            setLoading(false);
+            .then(images => {
+                setCarouselImages(images);
+            })
+            .catch(error => {
+                console.error('Error al obtener las imágenes:', error);
         });
 
         LocateImageService.getInstance().getImages("homepage", "club_info")
@@ -43,10 +33,6 @@ export const HomePage = () => {
                 console.error('Error al obtener las imágenes:', error);
             });
     }, []);
-
-    if (loading) {
-        return <LoadingScreen />;
-    }
 
     return (
         <div className="justify-center items-center">
