@@ -4,7 +4,6 @@ import Image from '../interfaces/Image';
 import { ImageSlider } from "../components/ImageSlider";
 import LocateImageService from "../services/LocateImageService";
 import CatalogItem from "../components/CatalogItem";
-import RecognitionItem from "../components/RecognitionItem";
 import { useTranslation } from "react-i18next";
 
 export const NewsPage = () => {
@@ -50,7 +49,6 @@ export const NewsPage = () => {
                     )}
                 </div>
             </div>
-            <h2 className="text-center mx-auto text-[#80AE8A] pt-10 md:pt-20 md:text-5xl text-3xl">{t('news_page.calendar_title')}</h2>
         </div>
     );
 };
