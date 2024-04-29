@@ -59,7 +59,7 @@ export const FootballPage = () => {
                     </p>
                 </div>
             ) : (
-                <div className="grid grid-cols-2 gap-4 place-content-center h-full">
+                <div className="grid grid-gols-1 md:grid-cols-2 gap-4 place-content-center h-full">
                     {imagesInfo.map((item, index) => (
                         <img key={index} src={item.url!} className='h-full w-full' />
                     ))}

@@ -53,15 +53,15 @@ export const TennisPage = () => {
             <ImageSlider images={imagesCarousel} text={t('tennis_page.tennis_page_title')} />
             <h2 className={`py-10 text-primary bg-white text-center text-4xl md:text-5xl lg:text-7xl font-bold`}>{t('tennis_page.information_title')}</h2>
             {imagesInfo.length === 0 ? (
-                <div className="flex justify-center items-center h-full">
+                <div className="flex justify-center items-center h-screen">
                     <p className="text-center text-base md:text-lg lg:text-xl text-gray-600">
                         Actualmente no contamos con información en esta área. ¡Mil disculpas!
                     </p>
                 </div>
             ) : (
-                <div className="grid grid-cols-2 gap-4 place-content-center h-full">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-4 place-content-center h-full">
                     {imagesInfo.map((item, index) => (
-                        <img key={index} src={item.url!} className='h-full w-full' />
+                        <img key={index} src={item.url!} className='w-full' />
                     ))}
                 </div>
             )}

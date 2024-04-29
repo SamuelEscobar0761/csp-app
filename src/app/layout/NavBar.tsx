@@ -2,6 +2,23 @@ import { useTranslation } from 'react-i18next';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
 
+const NavbarItem = ({ title, children }: {title: string, children: any}) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  return (
+    <div>
+      <button className="w-full text-left px-4 py-2 text-gray-900 bg-primary-400 hover:bg-gray-100" onClick={() => setIsOpen(!isOpen)}>
+        {title}
+      </button>
+      {isOpen && (
+        <div className="pl-4 bg-primary-400">
+          {children}
+        </div>
+      )}
+    </div>
+  );
+};
+
 export default function Navbar() {
   const { t } = useTranslation('ns1');
   const [hovered, setHovered] = useState(false);
@@ -98,25 +115,25 @@ export default function Navbar() {
                   <Link to='/swimming' onClick={() => { scrollToTop("swimming"); setSportsExpanded(false); }} className="md:p-2 md:hover:text-white">{t('navbar.swimming')}</Link>
                 </li>
                 <li className='md:p-2 md:hover:text-white'>
-                  <Link to='/tennis' onClick={() => { scrollToTop("swimming"); setSportsExpanded(false); }} className="md:p-2 md:hover:text-white">{t('navbar.tennis')}</Link>
+                  <Link to='/tennis' onClick={() => { scrollToTop("tennis"); setSportsExpanded(false); }} className="md:p-2 md:hover:text-white">{t('navbar.tennis')}</Link>
                 </li>
                 <li className='md:p-2 md:hover:text-white'>
-                  <Link to='/racket' onClick={() => { scrollToTop("swimming"); setSportsExpanded(false); }} className="md:p-2 md:hover:text-white">{t('navbar.racket')}</Link>
+                  <Link to='/racket' onClick={() => { scrollToTop("racket"); setSportsExpanded(false); }} className="md:p-2 md:hover:text-white">{t('navbar.racket')}</Link>
                 </li>
                 <li className='md:p-2 md:hover:text-white'>
-                  <Link to='/paddle' onClick={() => { scrollToTop("swimming"); setSportsExpanded(false); }} className="md:p-2 md:hover:text-white">{t('navbar.padding')}</Link>
+                  <Link to='/paddle' onClick={() => { scrollToTop("paddle"); setSportsExpanded(false); }} className="md:p-2 md:hover:text-white">{t('navbar.padding')}</Link>
                 </li>
                 <li className='md:p-2 md:hover:text-white'>
-                  <Link to='/football' onClick={() => { scrollToTop("swimming"); setSportsExpanded(false); }} className="md:p-2 md:hover:text-white">{t('navbar.football')}</Link>
+                  <Link to='/football' onClick={() => { scrollToTop("football"); setSportsExpanded(false); }} className="md:p-2 md:hover:text-white">{t('navbar.football')}</Link>
                 </li>
                 <li className='md:p-2 md:hover:text-white'>
-                  <Link to='/gym' onClick={() => { scrollToTop("swimming"); setSportsExpanded(false); }} className="md:p-2 md:hover:text-white">{t('navbar.gym')}</Link>
+                  <Link to='/gym' onClick={() => { scrollToTop("gym"); setSportsExpanded(false); }} className="md:p-2 md:hover:text-white">{t('navbar.gym')}</Link>
                 </li>
                 <li className='md:p-2 md:hover:text-white'>
-                  <Link to='/cycling' onClick={() => { scrollToTop("swimming"); setSportsExpanded(false); }} className="md:p-2 md:hover:text-white">{t('navbar.cycling')}</Link>
+                  <Link to='/cycling' onClick={() => { scrollToTop("cycling"); setSportsExpanded(false); }} className="md:p-2 md:hover:text-white">{t('navbar.cycling')}</Link>
                 </li>
                 <li className='md:p-2 md:hover:text-white'>
-                  <Link to='/wally' onClick={() => { scrollToTop("swimming"); setSportsExpanded(false); }} className="md:p-2 md:hover:text-white">{t('navbar.wally')}</Link>
+                  <Link to='/wally' onClick={() => { scrollToTop("wally"); setSportsExpanded(false); }} className="md:p-2 md:hover:text-white">{t('navbar.wally')}</Link>
                 </li>
               </ul>
             )}
@@ -182,7 +199,16 @@ export default function Navbar() {
             <Link to="/about_us" onClick={() => { scrollToTop("about_us"); handleMobileMenuToggle(); }} className="block py-2 px-3 text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-white md:p-0 w-full text-left">{t('navbar.about_us')}</Link>
           </li>
           <li>
-            <Link to="/sports" onClick={() => { scrollToTop("sports"); handleMobileMenuToggle(); }} className="block py-2 px-3 text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-white md:p-0 w-full text-left">{t('navbar.sports')}</Link>
+          <NavbarItem title={t('navbar.sports')}>
+            <Link to="/swimming" onClick={() => { scrollToTop("swimming"); handleMobileMenuToggle(); }} className="block py-2 px-3 text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-white md:p-0 w-full text-left">{t('navbar.swimming')}</Link>
+            <Link to="/tennis" onClick={() => { scrollToTop("tennis"); handleMobileMenuToggle(); }} className="block py-2 px-3 text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-white md:p-0 w-full text-left">{t('navbar.tennis')}</Link>
+            <Link to="/racket" onClick={() => { scrollToTop("racket"); handleMobileMenuToggle(); }} className="block py-2 px-3 text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-white md:p-0 w-full text-left">{t('navbar.racket')}</Link>
+            <Link to="/padding" onClick={() => { scrollToTop("padding"); handleMobileMenuToggle(); }} className="block py-2 px-3 text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-white md:p-0 w-full text-left">{t('navbar.padding')}</Link>
+            <Link to="/football" onClick={() => { scrollToTop("football"); handleMobileMenuToggle(); }} className="block py-2 px-3 text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-white md:p-0 w-full text-left">{t('navbar.football')}</Link>
+            <Link to="/gym" onClick={() => { scrollToTop("gym"); handleMobileMenuToggle(); }} className="block py-2 px-3 text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-white md:p-0 w-full text-left">{t('navbar.gym')}</Link>
+            <Link to="/cycling" onClick={() => { scrollToTop("cycling"); handleMobileMenuToggle(); }} className="block py-2 px-3 text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-white md:p-0 w-full text-left">{t('navbar.cycling')}</Link>
+            <Link to="/wally" onClick={() => { scrollToTop("wally"); handleMobileMenuToggle(); }} className="block py-2 px-3 text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-white md:p-0 w-full text-left">{t('navbar.wally')}</Link>
+          </NavbarItem>
           </li>
           <li>
             <Link to="/restaurant" onClick={() => { scrollToTop("restaurant"); handleMobileMenuToggle(); }} className="block py-2 px-3 text-gray-900 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-white md:p-0 w-full text-left">{t('navbar.restaurant')}</Link>
