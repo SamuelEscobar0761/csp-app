@@ -69,6 +69,10 @@ export const AboutUsPage = () => {
         fetchPdf();
       }, [pdfPathEstatuto]);
 
+    if (loading) {
+        return <LoadingScreen />;
+    }
+
     return(
         <div>
             <ImageSlider images={images_about_us} text={t('about_us_page.carousel')}/>
