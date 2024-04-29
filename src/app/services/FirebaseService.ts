@@ -51,7 +51,7 @@ export const getUrl = async (path: string): Promise<string | null> => {
 };
 
 // Función para obtener imágenes por página
-export const obtenerImagenesPorPagina = async (pagina: string): Promise<Image[]> => {
+export const obtenerUrlImagenes = async (pagina: string, componente: string): Promise<Image[]> => {
   const imagenesRef = ref(db, 'images');  // Asegúrate de que el path 'images' es correcto según tu base de datos
   try {
       const snapshot = await get(imagenesRef);
@@ -60,7 +60,7 @@ export const obtenerImagenesPorPagina = async (pagina: string): Promise<Image[]>
       if (imagesData) {
           // Filtrar por 'page' y extraer los datos completos que cumplen con la interfaz Image
           Object.keys(imagesData).forEach(key => {
-              if (imagesData[key].page === pagina) {
+              if (imagesData[key].page === pagina && imagesData[key].component === componente) {
                   images.push({
                       page: imagesData[key].page,
                       component: imagesData[key].component,

@@ -7,7 +7,8 @@ import CatalogItem from "../components/CatalogItem";
 import RecognitionItem from "../components/RecognitionItem";
 import { JumpLine } from "../services/FormatTextService";
 import PdfViewer from "../components/pdf_reader/PdfReader";
-import { getUrl } from "../services/FirebaseService";
+import { getUrl, obtenerUrlImagenes } from "../services/FirebaseService";
+import LoadingScreen from "../components/LoadingScreen";
 
 export const AboutUsPage = () => {
     const [images_about_us, setImages_about_us] = useState<Image[]>([]);
@@ -18,6 +19,7 @@ export const AboutUsPage = () => {
     const directors = t("about_us_page.directory", { returnObjects: true });
     const pdfPathEstatuto = "pdfs/estatuto.pdf";
     const [fileUrl, setFileUrl] = useState<string | null>(null);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         LocateImageService.getInstance().getImages("about_us_page", "carousel")
@@ -36,13 +38,26 @@ export const AboutUsPage = () => {
                 console.error('Error al obtener las imágenes:', error);
         });
 
-        LocateImageService.getInstance().getImages("about_us_page", "directory")
-            .then(images => {
-                setDirectorsImages(images);
-            })
-            .catch(error => {
+        const loadDirectoryImages = async () => {
+            try {
+                const directoryImages = await obtenerUrlImagenes("about_us_page", "directory");
+        
+                    // Obtener URLs para cada imagen usando el path de cada objeto Image
+                    const directoryImagesWithUrl = await Promise.all(
+                        directoryImages.map(async (image) => ({
+                        ...image,
+                        url: await getUrl(image.path) // Obtener la URL real y añadirla al objeto
+                    }))
+                );
+                setDirectorsImages(directoryImagesWithUrl);
+            } catch (error) {
                 console.error('Error al obtener las imágenes:', error);
-        });
+            } finally {
+                // Quitar la pantalla de carga después de un breve retraso
+                setTimeout(() => setLoading(false), 500);
+            }
+        }
+        loadDirectoryImages();
     }, []);
 
     useEffect(() => {
@@ -84,7 +99,7 @@ export const AboutUsPage = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 bg-white p-4">
                 {directors.map((item, index) => (
                     directorsImages.length > 0 && (
-                        <RecognitionItem key={index} sections={1} image={directorsImages[index].path} title={item.name} subtitle={item.position}/>
+                        <RecognitionItem key={index} sections={1} image={directorsImages[index].url!} title={item.name} subtitle={item.position}/>
                     )
                 ))}
             </div>

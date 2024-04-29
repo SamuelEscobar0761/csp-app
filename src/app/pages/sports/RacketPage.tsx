@@ -3,7 +3,7 @@ import { ImageSlider } from "../../components/ImageSlider";
 import { useTranslation } from "react-i18next";
 import Image from '../../interfaces/Image';
 import LocateImageService from "../../services/LocateImageService";
-import { getUrl, obtenerImagenesPorPagina } from "../../services/FirebaseService";
+import { getUrl, obtenerUrlImagenes } from "../../services/FirebaseService";
 import LoadingScreen from "../../components/LoadingScreen";
 
 export const RacketPage = () => {
@@ -20,7 +20,7 @@ export const RacketPage = () => {
                 const carouselImages = await LocateImageService.getInstance().getImages(page, "carousel");
     
                 // Obtener información de imágenes con todos los detalles incluyendo paths
-                const infoImages = await obtenerImagenesPorPagina(page);
+                const infoImages = await obtenerUrlImagenes(page, "information");
     
                 // Obtener URLs para cada imagen usando el path de cada objeto Image
                 const infoImagesWithUrls = await Promise.all(
