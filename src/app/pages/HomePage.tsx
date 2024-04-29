@@ -3,7 +3,7 @@ import { ImageSlider } from '../components/ImageSlider';
 import { useTranslation } from 'react-i18next';
 import LocateImageService from '../services/LocateImageService';
 import Image from '../interfaces/Image';
-import { obtenerFile } from '../services/FirebaseService';
+import { getUrl } from '../services/FirebaseService';
 
 export const HomePage = () => {
     const [info_images, setInfo_images] = useState<Image[]>([]);
@@ -23,7 +23,7 @@ export const HomePage = () => {
             .then(images => {
                 Promise.all(images.map(async (item) => ({
                     ...item,
-                    url: await obtenerFile(item.path) // This can resolve to string or null
+                    url: await getUrl(item.path) // This can resolve to string or null
                 })))
                 .then(imagesWithUrls => {
                     setInfo_images(imagesWithUrls); // Set the images with URLs

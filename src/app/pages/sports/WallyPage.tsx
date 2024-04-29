@@ -3,28 +3,51 @@ import { ImageSlider } from "../../components/ImageSlider";
 import { useTranslation } from "react-i18next";
 import Image from '../../interfaces/Image';
 import LocateImageService from "../../services/LocateImageService";
+import { getUrl, obtenerImagenesPorPagina } from "../../services/FirebaseService";
+import LoadingScreen from "../../components/LoadingScreen";
 
 export const WallyPage = () => {
     const [imagesCarousel, setImagesCarousel] = useState<Image[]>([]);
     const [imagesInfo, setImagesInfo] = useState<Image[]>([]);
+    const [loading, setLoading] = useState(true); // Nuevo estado para controlar la carga
     const { t } = useTranslation('ns1');
+    const page = "wally_page";
 
     useEffect(() => {
-        LocateImageService.getInstance().getImages("wally_page", "carousel")
-            .then(images => {
-                setImagesCarousel(images);
-            })
-            .catch(error => {
+        const loadImages = async () => {
+            try {
+                // Obtener imágenes del carrusel
+                const carouselImages = await LocateImageService.getInstance().getImages(page, "carousel");
+    
+                // Obtener información de imágenes con todos los detalles incluyendo paths
+                const infoImages = await obtenerImagenesPorPagina(page);
+    
+                // Obtener URLs para cada imagen usando el path de cada objeto Image
+                const infoImagesWithUrls = await Promise.all(
+                    infoImages.map(async (image) => ({
+                        ...image,
+                        url: await getUrl(image.path) // Obtener la URL real y añadirla al objeto
+                    }))
+                );
+    
+                // Establecer los estados con los datos cargados
+                setImagesCarousel(carouselImages);
+                setImagesInfo(infoImagesWithUrls);
+            } catch (error) {
                 console.error('Error al obtener las imágenes:', error);
-        });
-        LocateImageService.getInstance().getImages("wally_page", "information")
-            .then(images => {
-                setImagesInfo(images);
-            })
-            .catch(error => {
-                console.error('Error al obtener las imágenes:', error);
-        });
+            } finally {
+                // Quitar la pantalla de carga después de un breve retraso
+                setTimeout(() => setLoading(false), 500);
+            }
+        };
+
+        loadImages();
     }, []);
+
+    if (loading) {
+        return <LoadingScreen />;
+    }
+    
     return(
         <div>
             <ImageSlider images={imagesCarousel} text={t('wally_page.wally_page_title')} />
@@ -38,7 +61,7 @@ export const WallyPage = () => {
             ) : (
                 <div className="grid grid-cols-2 gap-4 place-content-center h-full">
                     {imagesInfo.map((item, index) => (
-                        <img key={index} src={item.path} className='h-full w-full' />
+                        <img key={index} src={item.url!} className='h-full w-full' />
                     ))}
                 </div>
             )}

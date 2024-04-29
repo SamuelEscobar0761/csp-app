@@ -4,35 +4,39 @@ import { useTranslation } from "react-i18next";
 import Image from '../../interfaces/Image';
 import LocateImageService from "../../services/LocateImageService";
 import LoadingScreen from "../../components/LoadingScreen"; // Asumiendo que tienes este componente
-import { obtenerFile } from "../../services/FirebaseService";
+import { getUrl, obtenerImagenesPorPagina } from "../../services/FirebaseService";
 
 export const SwimmingPage = () => {
     const [imagesCarousel, setImagesCarousel] = useState<Image[]>([]);
     const [imagesInfo, setImagesInfo] = useState<Image[]>([]);
     const [loading, setLoading] = useState(true); // Nuevo estado para controlar la carga
     const { t } = useTranslation('ns1');
+    const page = "swimming_page";
 
     useEffect(() => {
         const loadImages = async () => {
             try {
-                const carouselImages = await LocateImageService.getInstance().getImages("swimming_page", "carousel");
-                const infoImages = await LocateImageService.getInstance().getImages("swimming_page", "information");
-
-                // Obtén las URLs para las imágenes del carrusel
-                const carouselImagesWithUrls = await Promise.all(carouselImages.map(image => obtenerFile(image.path)));
-
-                // Asegúrate de que todas las URLs se obtuvieron antes de continuar
-                const allImagesWithUrls = carouselImages.map((img, index) => ({
-                    ...img,
-                    url: carouselImagesWithUrls[index] // Esto debería ser una URL o null
-                }));
-
-                setImagesCarousel(allImagesWithUrls);
-                setImagesInfo(infoImages);
+                // Obtener imágenes del carrusel
+                const carouselImages = await LocateImageService.getInstance().getImages(page, "carousel");
+    
+                // Obtener información de imágenes con todos los detalles incluyendo paths
+                const infoImages = await obtenerImagenesPorPagina(page);
+    
+                // Obtener URLs para cada imagen usando el path de cada objeto Image
+                const infoImagesWithUrls = await Promise.all(
+                    infoImages.map(async (image) => ({
+                        ...image,
+                        url: await getUrl(image.path) // Obtener la URL real y añadirla al objeto
+                    }))
+                );
+    
+                // Establecer los estados con los datos cargados
+                setImagesCarousel(carouselImages);
+                setImagesInfo(infoImagesWithUrls);
             } catch (error) {
                 console.error('Error al obtener las imágenes:', error);
             } finally {
-                // Esperar 3 segundos antes de quitar la pantalla de carga
+                // Quitar la pantalla de carga después de un breve retraso
                 setTimeout(() => setLoading(false), 500);
             }
         };
@@ -60,7 +64,7 @@ export const SwimmingPage = () => {
             ) : (
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 place-content-center h-full">
                     {imagesInfo.map((item, index) => (
-                        <img key={index} src={item.path} alt={item.name} className='w-full' />
+                        <img key={index} src={item.url!} className='w-full' />
                     ))}
                 </div>
             )}
