@@ -8,7 +8,6 @@ import RecognitionItem from "../components/RecognitionItem";
 import { JumpLine } from "../services/FormatTextService";
 import PdfViewer from "../components/pdf_reader/PdfReader";
 import { getUrl, obtenerUrlImagenes } from "../services/FirebaseService";
-import LoadingScreen from "../components/LoadingScreen";
 
 export const AboutUsPage = () => {
     const [images_about_us, setImages_about_us] = useState<Image[]>([]);
@@ -19,7 +18,6 @@ export const AboutUsPage = () => {
     const directors = t("about_us_page.directory", { returnObjects: true });
     const pdfPathEstatuto = "pdfs/estatuto.pdf";
     const [fileUrl, setFileUrl] = useState<string | null>(null);
-    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         LocateImageService.getInstance().getImages("about_us_page", "carousel")
@@ -52,9 +50,6 @@ export const AboutUsPage = () => {
                 setDirectorsImages(directoryImagesWithUrl);
             } catch (error) {
                 console.error('Error al obtener las imágenes:', error);
-            } finally {
-                // Quitar la pantalla de carga después de un breve retraso
-                setTimeout(() => setLoading(false), 500);
             }
         }
         loadDirectoryImages();
@@ -68,11 +63,6 @@ export const AboutUsPage = () => {
     
         fetchPdf();
       }, [pdfPathEstatuto]);
-
-    if (loading) {
-        return <LoadingScreen />;
-    }
-
     return(
         <div>
             <ImageSlider images={images_about_us} text={t('about_us_page.carousel')}/>
