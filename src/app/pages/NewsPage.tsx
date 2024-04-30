@@ -33,8 +33,8 @@ export const NewsPage = () => {
         <div>
             <ImageSlider images={images_about_us} text={t('news_page.title')}/>
             <div>
-                <h2 className="text-center mx-auto text-[#80AE8A] pt-10 md:pt-20 md:text-5xl text-3xl">{t('news_page.nearby_events_title')}</h2>
-                <CatalogItem img_path="/assets/images/sin_foto.jpg" img_position="left" description={t('news_page.events.0.description')} title={`${t('news_page.events.0.name')} - ${t('news_page.events.0.date')}`}/>
+                <h2 className="text-center mx-auto text-primary font-bold pt-10 md:pt-20 md:text-5xl text-3xl">{t('news_page.nearby_events_title')}</h2>
+                <CatalogItem img_path="/assets/images/sin_foto.jpg" img_position="left" title={`${t('news_page.events.1.name')} - ${t('news_page.events.1.date')}`} description=""/>
                 <CatalogItem img_path="/assets/images/sin_foto.jpg" img_position="left" description={t('news_page.events.1.description')} title={`${t('news_page.events.1.name')} - ${t('news_page.events.1.date')}`}/>
                 <CatalogItem img_path="/assets/images/sin_foto.jpg" img_position="left" description={t('news_page.events.2.description')} title={`${t('news_page.events.2.name')} - ${t('news_page.events.2.date')}`}/>
                 <div>
