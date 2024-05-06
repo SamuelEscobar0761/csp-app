@@ -78,3 +78,27 @@ export const obtenerUrlImagenes = async (pagina: string, componente: string): Pr
   }
 };
 
+export const obtenerDatosPDFs = async (componente: string): Promise<PDF[]> => {
+  const pdfsRef = ref(db, 'pdfs');
+  try {
+    const snapshot = await get(pdfsRef);
+    const pdfData = snapshot.val();
+    let pdfs: PDF[] = [];
+    if (pdfData) {
+      const tasks = Object.keys(pdfData).filter(key => pdfData[key].component === componente)
+        .map(async key => {
+          const pdf = pdfData[key];
+          const url = await getUrl(pdf.path);
+          return {
+            ...pdf,
+            url
+          };
+        });
+      pdfs = await Promise.all(tasks);
+    }
+    return pdfs;
+  } catch (error) {
+    console.error('Error al obtener los PDFs:', error);
+    return [];
+  }
+};

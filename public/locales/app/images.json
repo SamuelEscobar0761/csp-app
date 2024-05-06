@@ -30,7 +30,7 @@
     {"page": "gym_page", "component": "carousel", "name": "patio_central", "path": "/assets/images/patio/patio2.jpeg"},
     {"page": "cycling_page", "component": "carousel", "name": "patio_central", "path": "/assets/images/patio/patio2.jpeg"},
     {"page": "wally_page", "component": "carousel", "name": "patio_central", "path": "/assets/images/patio/patio2.jpeg"},
-    {"page": "restaurant_page", "component": "carousel", "name": "comedor", "path": "/assets/images/sin_foto.jpg"},
+    {"page": "restaurant_page", "component": "carousel", "name": "comedor", "path": "/assets/images/comedor/comedor1.jpeg"},
     {"page": "join_us_page", "component": "carousel", "name": "patio_central", "path": "/assets/images/patio/patio2.jpeg"},
     {"page": "footer", "component": "logo", "path": ""}
 ]
