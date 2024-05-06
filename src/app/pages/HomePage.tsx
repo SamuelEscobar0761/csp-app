@@ -36,7 +36,7 @@ export const HomePage = () => {
 
     return (
         <div className="justify-center items-center">
-            <ImageSlider images={carouselImages} />
+            <ImageSlider images={carouselImages}/>
             {info_images.map((item, index) => (
                 item.url ? <img key={index} src={item.url} className='w-full h-96' alt="Club Image" /> : null
             ))}

@@ -159,10 +159,10 @@ export default function Navbar() {
             {joinUsExpanded && (
               <ul className="absolute top-full left-0 w-full bg-primary-400 md:shadow-md rounded-lg text-center text-gray-900">
                 <li className='md:p-2 md:hover:text-white'>
-                  <a href="#tariff" onClick={() => setJoinUsExpanded(false)}>{t('navbar.tariff')}</a>
+                  <a href="#participation" onClick={() => setJoinUsExpanded(false)}>{t('navbar.participation')}</a>
                 </li>
                 <li className='md:p-2 md:hover:text-white'>
-                  <a href="#participation" onClick={() => setJoinUsExpanded(false)}>{t('navbar.participation')}</a>
+                  <a href="#tariff" onClick={() => setJoinUsExpanded(false)}>{t('navbar.tariff')}</a>
                 </li>
               </ul>
             )}

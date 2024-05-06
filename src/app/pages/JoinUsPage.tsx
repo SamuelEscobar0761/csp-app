@@ -58,22 +58,22 @@ export const JoinUsPage = () => {
     return(
         <div>
             <ImageSlider images={imagesCarousel} text={t('join_us_page.join_us_title')}/>
-            <br id='tariff'/>
-            <br/>
-            <br/>
-            <h2 className="py-10 text-primary bg-white text-center text-7xl font-bold`">{t('join_us_page.tariff_title')}</h2>
-            <div className="flex justify-center ...">
-                {tariffImages.map((item, index) => (
-                    <img key={index} src={item.url!} className='w-2/3'/>
-                ))}
-            </div>
             <br id='participation'/>
             <br/>
             <br/>
             <h2 className="py-10 text-primary bg-white text-center text-7xl font-bold`">{t('join_us_page.participation_title')}</h2>
             <div className="flex justify-center ...">
                 {participationImages.map((item, index) => (
-                    <img key={index} src={item.url!} className='w-2/3'/>
+                    <img key={index} src={item.url!} className='w-5/12'/>
+                ))}
+            </div>
+            <br id='tariff'/>
+            <br/>
+            <br/>
+            <h2 className="py-10 text-primary bg-white text-center text-7xl font-bold`">{t('join_us_page.tariff_title')}</h2>
+            <div className="flex justify-center ...">
+                {tariffImages.map((item, index) => (
+                    <img key={index} src={item.url!} className='w-7/12'/>
                 ))}
             </div>
         </div>

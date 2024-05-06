@@ -76,12 +76,21 @@ export const AboutUsPage = () => {
     return(
         <div>
             <ImageSlider images={images_about_us} text={t('about_us_page.carousel')}/>
-            <br id='history'/>
+            <br/>
+            <br/>
+            <br/>
+            <div className="flex justify-center ...">
+            <p className="text-primary font-bold bg-white md:text-3xl text-xl w-1/2">El Club Social Petrolero es el punto de encuentro e integración de la familia, es el lugar indicado para entretenerse, practicar deportes y realizar actividades sociales o culturales</p>
+            </div>
+            <div className="flex justify-center ...">
+            <p className="text-primary font-bold bg-white md:text-3xl text-xl w-1/2">Al ser parte de nuestro Club, se abre la puerta de un segundo hogar, aqui tiene lo necesario para equilibrar su trabajo con la actividad física y familiar.</p>
+            </div>
+             <br id='history'/>
             <br/>
             <br/>
             <h2 className={`py-10 text-primary bg-white text-center text-4xl md:text-5xl lg:text-7xl font-bold`}>{t('about_us_page.title')}</h2>
             <div className="flex justify-center ...">
-                <img src="/assets/images/historia/historia1.jpeg" className="w-11/12 h-auto rounded-[29px]"/>
+                <img src="/assets/images/historia/historia1.jpeg" className="md:w-7/12 w-11/12 h-auto rounded-[29px]"/>
             </div>
             <div className="p-10">
                 <p className="text-primary bg-white md:text-3xl text-xl"><JumpLine texto={t('about_us_page.resume')}/></p>

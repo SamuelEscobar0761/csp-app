@@ -64,10 +64,11 @@ export const SwimmingPage = () => {
             ) : (
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4 place-content-center h-full">
                     {imagesInfo.map((item, index) => (
-                        <img key={index} src={item.url!} className='w-full' />
+                        <img key={index} src={item.url!} className='h-[880px]' />
                     ))}
                 </div>
             )}
+            <br/>
         </div>
     );
 };
