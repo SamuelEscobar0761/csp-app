@@ -3,6 +3,16 @@ import { getDatabase, ref, get } from "firebase/database";
 import {getStorage, ref as refStorage, getDownloadURL} from "firebase/storage";
 import Image from '../interfaces/Image'
 
+export interface Noticia {
+  id: string;
+  title: string;
+  description: string;
+  date: string;
+  image: string;
+  url: string | null;
+}
+
+
 // Configuración de Firebase
 const firebaseConfig = {
     apiKey: "AIzaSyCiXm7xzyou9GySZ7Y7x1tmm6CYs-BBars",
@@ -20,22 +30,32 @@ const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
 const storage = getStorage();
 
-// Función para obtener una noticia específica
-export const obtenerNoticia = async () => {
+// Función para obtener todas las noticias
+export const obtenerNoticias = async (): Promise<Noticia[]> => {
   try {
-    // Obtener una referencia al nodo 'news/0'
-    const newsRef = ref(db, 'news/0');
-    // Obtener los datos del nodo 'news/0'
+    // Obtener una referencia al nodo 'news'
+    const newsRef = ref(db, 'news');
+    // Obtener los datos de todos los nodos bajo 'news'
     const snapshot = await get(newsRef);
     if (snapshot.exists()) {
-      return snapshot.val();
+      // Convertir los datos del snapshot en un arreglo de noticias
+      const newsData = snapshot.val();
+      const newsArray: Noticia[] = Object.keys(newsData).map(key => ({
+        id: key,
+        title: newsData[key].title,
+        description: newsData[key].description,
+        date: newsData[key].date,
+        image: newsData[key].image,
+        url: null,
+      }));
+      return newsArray;
     } else {
-      console.log('No existe ninguna noticia con ese identificador.');
-      return null;
+      console.log('No se encontraron noticias.');
+      return [];
     }
   } catch (error) {
-    console.error('Error al obtener los datos:', error);
-    return null;
+    console.error('Error al obtener las noticias:', error);
+    return [];
   }
 };
 

@@ -27,7 +27,9 @@ export default function CatalogItem({ img_position, title = "", img_path, descri
             <div className="w-full">
                 <div className={containerClasses}>
                     <h2 className="text-primary bg-white text-center text-3xl lg:text-5xl mb-4">{title}</h2>
-                    <img src={img_path} alt={title} className="w-full object-cover rounded-2xl" />
+                    <div className="flex justify-center">
+                        <img src={img_path} alt={title} className="w-2/3 rounded-2xl" />
+                    </div>
                 </div>
             </div>
         );

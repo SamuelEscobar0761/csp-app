@@ -29,8 +29,11 @@ export function ImageSlider({ images, text = "" }: { images: Image[]; text?: str
       </Carousel>
       {/* Agregar el texto centrado si hay texto */}
       {text && (
-        <div className="absolute inset-0 flex items-center justify-center text-center text-white lg:text-9xl md:text-7xl text-5xl font-bold">
-          {text}
+        <div className="absolute inset-0 flex items-center justify-center text-center">
+          <p className="text-white lg:text-9xl md:text-7xl text-5xl font-bold"
+             style={{ textShadow: '4px 4px 0 rgba(0, 0, 0, 0.75)' }}>
+            {text}
+          </p>
         </div>
       )}
     </div>

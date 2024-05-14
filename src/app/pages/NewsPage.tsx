@@ -1,4 +1,4 @@
-import { obtenerNoticia } from "../services/FirebaseService"
+import { Noticia, getUrl, obtenerNoticias } from "../services/FirebaseService"
 import { useEffect, useState } from "react";
 import Image from '../interfaces/Image';
 import { ImageSlider } from "../components/ImageSlider";
@@ -9,10 +9,10 @@ import { useTranslation } from "react-i18next";
 export const NewsPage = () => {
     const [images_about_us, setImages_about_us] = useState<Image[]>([]);
     const { t } = useTranslation('ns1');
-    const [noticia, setNoticia] = useState<{title: string, description: string, date: string}>();
+    const [noticias, setNoticias] = useState<Noticia[]>([]);
 
     useEffect(() => {
-        LocateImageService.getInstance().getImages("about_us_page", "carousel")
+        LocateImageService.getInstance().getImages("news_page", "carousel")
             .then(images => {
                 setImages_about_us(images);
             })
@@ -23,8 +23,14 @@ export const NewsPage = () => {
 
     useEffect(() => {
         const fetchData = async () => {
-          const data = await obtenerNoticia();
-          setNoticia(data);
+          const data = await obtenerNoticias();
+        const dataWithUrl = await Promise.all(
+            data.map(async (noticia) => ({
+                ...noticia,
+                url: await getUrl(noticia.image) // Obtener la URL real y añadirla al objeto
+            }))
+        );
+          setNoticias(dataWithUrl);
         };
         fetchData();
       }, []);
@@ -34,20 +40,15 @@ export const NewsPage = () => {
             <ImageSlider images={images_about_us} text={t('news_page.title')}/>
             <div>
                 <h2 className="text-center mx-auto text-primary font-bold pt-10 md:pt-20 md:text-5xl text-3xl">{t('news_page.nearby_events_title')}</h2>
-                <CatalogItem img_path="/assets/images/sin_foto.jpg" img_position="left" title={`${t('news_page.events.1.name')} - ${t('news_page.events.1.date')}`} description=""/>
-                <CatalogItem img_path="/assets/images/sin_foto.jpg" img_position="left" description={t('news_page.events.1.description')} title={`${t('news_page.events.1.name')} - ${t('news_page.events.1.date')}`}/>
-                <CatalogItem img_path="/assets/images/sin_foto.jpg" img_position="left" description={t('news_page.events.2.description')} title={`${t('news_page.events.2.name')} - ${t('news_page.events.2.date')}`}/>
-                <div>
-                    {noticia ? (
-                        <>
-                        <h2>{noticia.title}</h2>
-                        <p>{noticia.description}</p>
-                        <p>{noticia.date}</p>
-                        </>
-                    ) : (
-                        <p>Cargando noticia...</p>
-                    )}
-                </div>
+                {noticias ? (
+                    noticias.map((noticia, index) => (
+                        <div key={index}>
+                            <CatalogItem img_path={noticia.url!} img_position="left" title={`${noticia.title} - ${noticia.date}`} description={noticia.description}/>
+                        </div>
+                    ))
+                ) : (
+                    <p>Cargando noticias...</p>
+                )}
             </div>
         </div>
     );

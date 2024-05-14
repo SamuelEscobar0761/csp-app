@@ -3,12 +3,13 @@ import { ImageSlider } from '../components/ImageSlider';
 import { useTranslation } from 'react-i18next';
 import LocateImageService from '../services/LocateImageService';
 import Image from '../interfaces/Image';
-import { getUrl } from '../services/FirebaseService';
+import { getUrl, obtenerUrlImagenes } from '../services/FirebaseService';
 
 export const HomePage = () => {
     const [info_images, setInfo_images] = useState<Image[]>([]);
     const [carouselImages, setCarouselImages] = useState<Image[]>([]);
     const { t } = useTranslation('ns1');
+    const page = 'homepage';
 
     useEffect(() => {
         LocateImageService.getInstance().getImages("homepage", "carousel")
@@ -19,19 +20,27 @@ export const HomePage = () => {
                 console.error('Error al obtener las imágenes:', error);
         });
 
-        LocateImageService.getInstance().getImages("homepage", "club_info")
-            .then(images => {
-                Promise.all(images.map(async (item) => ({
-                    ...item,
-                    url: await getUrl(item.path) // This can resolve to string or null
-                })))
-                .then(imagesWithUrls => {
-                    setInfo_images(imagesWithUrls); // Set the images with URLs
-                });
-            })
-            .catch(error => {
+        const loadImages = async () => {
+            try {    
+                // Obtener información de imágenes con todos los detalles incluyendo paths
+                const images = await obtenerUrlImagenes(page, "information");
+    
+                // Obtener URLs para cada imagen usando el path de cada objeto Image
+                const infoImagesWithUrls = await Promise.all(
+                    images.map(async (image) => ({
+                        ...image,
+                        url: await getUrl(image.path) // Obtener la URL real y añadirla al objeto
+                    }))
+                );
+    
+                // Establecer los estados con los datos cargados
+                setInfo_images(infoImagesWithUrls);
+            } catch (error) {
                 console.error('Error al obtener las imágenes:', error);
-            });
+            }
+        };
+
+        loadImages();
     }, []);
 
     return (
