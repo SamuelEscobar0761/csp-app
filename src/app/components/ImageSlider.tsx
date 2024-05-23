@@ -9,7 +9,7 @@ export function ImageSlider({ images, text = "" }: { images: Image[]; text?: str
   }
 
   return (
-    <div className="relative w-full h-screen">
+    <div className="relative w-full h-[400px] lg:h-[800px]">
       <Carousel
         transition={{ type: "tween", duration: 2 }}
         placeholder={undefined}

@@ -47,9 +47,9 @@ export const HomePage = () => {
         <div className="justify-center items-center">
             <ImageSlider images={carouselImages}/>
             {info_images.map((item, index) => (
-                item.url ? <img key={index} src={item.url} className='w-full h-96' alt="Club Image" /> : null
+                item.url ? <img key={index} src={item.url} className='my-10 w-full h-56 lg:h-96' alt="Club Image" /> : null
             ))}
-            <h2 className='py-10 text-primary bg-white text-center text-7xl font-bold'>{t('homepage.last_release_title')}</h2>
+            <h2 className='py-10 text-primary bg-white text-center text-3xl lg:text-7xl font-bold'>{t('homepage.last_release_title')}</h2>
             <div className="flex justify-center">
                 <img src='\assets\images\comunicados\comunicado.jpg' className='w-2/3' alt="Release Image" />
             </div>
