@@ -3,11 +3,13 @@ import { ImageSlider } from '../components/ImageSlider';
 import { useTranslation } from 'react-i18next';
 import LocateImageService from '../services/LocateImageService';
 import Image from '../interfaces/Image';
-import { getUrl, obtenerUrlImagenes } from '../services/FirebaseService';
+import { Noticia, getUrl, obtenerNoticias, obtenerUrlImagenes } from '../services/FirebaseService';
+import CatalogItem from '../components/CatalogItem';
 
 export const HomePage = () => {
     const [info_images, setInfo_images] = useState<Image[]>([]);
     const [carouselImages, setCarouselImages] = useState<Image[]>([]);
+    const [comunicado, setComunicado] = useState<Noticia | null>(null);
     const { t } = useTranslation('ns1');
     const page = 'homepage';
 
@@ -43,6 +45,30 @@ export const HomePage = () => {
         loadImages();
     }, []);
 
+    useEffect(() => {
+        const fetchLatestComunicado = async () => {
+            const data = await obtenerNoticias();
+            // Filtrar por título 'Comunicado'
+            const comunicados = data.filter(noticia => noticia.title === 'Comunicado');
+            // Encontrar el comunicado con el ID más grande
+            const latestComunicado = comunicados.reduce((latest, current) => {
+                return parseInt(latest.id, 10) > parseInt(current.id, 10) ? latest : current;
+            }, comunicados[0]);
+    
+            if (latestComunicado) {
+                const latestComunicadoWithUrl = {
+                    ...latestComunicado,
+                    url: await getUrl(latestComunicado.image) // Obtener la URL real y añadirla al objeto
+                };
+                setComunicado(latestComunicadoWithUrl); // Establecer el último comunicado en el estado como un objeto
+            } else {
+                setComunicado(null); // No se encontraron comunicados, establecer el estado a null
+            }
+        };
+        fetchLatestComunicado();
+    }, []);
+    
+
     return (
         <div className="justify-center items-center">
             <ImageSlider images={carouselImages}/>
@@ -51,7 +77,12 @@ export const HomePage = () => {
             ))}
             <h2 className='py-10 text-primary bg-white text-center text-3xl lg:text-7xl font-bold'>{t('homepage.last_release_title')}</h2>
             <div className="flex justify-center">
-                <img src='\assets\images\comunicados\comunicado.jpg' className='w-2/3' alt="Release Image" />
+                {comunicado?(
+                    <CatalogItem img_path={comunicado!.url!} title={comunicado!.date} img_position={'right'} />
+                ):(
+                    <div></div>
+                )}
+                
             </div>
         </div>
     );
