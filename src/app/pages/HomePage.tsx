@@ -75,10 +75,10 @@ export const HomePage = () => {
             {info_images.map((item, index) => (
                 item.url ? <img key={index} src={item.url} className='my-10 w-full h-56 lg:h-96' alt="Club Image" /> : null
             ))}
-            <h2 className='py-10 text-primary bg-white text-center text-3xl lg:text-7xl font-bold'>{t('homepage.last_release_title')}</h2>
+            <h2 className='lg:py-10 text-primary bg-white text-center text-3xl lg:text-7xl font-bold'>{t('homepage.last_release_title')}</h2>
             <div className="flex justify-center">
                 {comunicado?(
-                    <CatalogItem img_path={comunicado!.url!} title={comunicado!.date} img_position={'right'} />
+                    <CatalogItem img_path={comunicado!.url!} title={`${comunicado!.title} ${comunicado!.date}`} img_position={'right'} />
                 ):(
                     <div></div>
                 )}

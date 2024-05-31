@@ -18,7 +18,7 @@ const Page = React.forwardRef(({ pageNumber }, ref) => (
   </div>
 ));
 
-function PdfViewer({ pdfPath }) {
+function PdfViewer({ pdfPath, pdfName }) {
   const [numPages, setNumPages] = useState(null);
   const [isMobile, setIsMobile] = useState(false);
 
@@ -42,11 +42,12 @@ function PdfViewer({ pdfPath }) {
     <div>
       {isMobile ? (
         // Renderiza un iframe para dispositivos móviles
-        <iframe
-          src={pdfPath}
-          style={{ width: '100%', height: '500px', border: 'none' }}
-          title="PDF Viewer"
-        />
+          <div className="p-4 hover:bg-gray-100 text-blue-600 hover:text-blue-800 cursor-pointer">
+              <a href={pdfPath} target="_blank" rel="noopener noreferrer" className="flex items-center w-full">
+                  <img src='/assets/icons/pdf_icon.png' className="w-6 h-6"/>
+                  <span className="text-xl">{pdfName}</span>
+              </a>
+          </div>
       ) : (
         // Renderiza HTMLFlipBook para dispositivos no móviles
         <Document file={pdfPath} onLoadSuccess={onDocumentLoadSuccess}>
@@ -69,7 +70,7 @@ class PdfReader extends React.Component {
 
   componentDidMount() {
     if (this.containerRef.current) {
-      ReactDOM.render(<PdfViewer pdfPath={this.props.pdfPath} />, this.containerRef.current);
+      ReactDOM.render(<PdfViewer pdfPath={this.props.pdfPath} pdfName={this.props.pdfName}/>, this.containerRef.current);
     } else {
       console.error("Target container is not a DOM element");
     }
