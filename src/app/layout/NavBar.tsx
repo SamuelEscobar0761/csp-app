@@ -108,7 +108,7 @@ export default function Navbar() {
           </li>
           <li onMouseLeave={() => setSportsExpanded(false)} className='flex-grow relative p-2'>
             {/* <Link to='/sports' onClick={() => { scrollToTop("sports"); toggleSports(); }} className="block py-2 px-3 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-white md:p-0 cursor-pointer text-center">{t('navbar.sports')}</Link> */}
-            <p onClick={() => { scrollToTop("sports"); toggleSports(); }} className="block py-2 px-3 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-white md:p-0 cursor-pointer text-center">{t('navbar.sports')}</p>
+            <p onClick={() => { toggleSports(); }} className="block py-2 px-3 hover:bg-gray-100 md:hover:bg-transparent md:hover:text-white md:p-0 cursor-pointer text-center">{t('navbar.sports')}</p>
             {sportsExpanded && (
               <ul className="absolute top-full left-0 w-full bg-primary-400 md:shadow-md rounded-lg text-center text-gray-900">
                 <li className='md:p-2 md:hover:text-white'>
