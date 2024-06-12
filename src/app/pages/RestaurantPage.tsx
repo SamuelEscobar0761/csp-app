@@ -78,28 +78,28 @@ export const RestaurantPage = () => {
             <br id="weekly"/>
             <br/>
             <br/>
-            <h2 className="py-10 text-primary bg-white text-center text-7xl font-bold`">{t('restaurant_page.weekly_menu_title')}</h2>
+            <h2 className="py-5 lg:py-10 text-primary bg-white text-center text-4xl md:text-5xl lg:text-7xl font-bold`">{t('restaurant_page.weekly_menu_title')}</h2>
             <div className="flex justify-center ...">
                 {weeklyMenus.map((item, index) => (
-                    <img key={index} src={item.url!} className='h-[890px]'/>
+                    <img key={index} src={item.url!} className='lg:h-[890px]'/>
                 ))}
             </div>
             <br id="main"/>
             <br/>
             <br/>
-            <h2 className="py-10 text-primary bg-white text-center text-7xl font-bold`">{t('restaurant_page.main_menu_title')}</h2>
+            <h2 className="py-10 text-primary bg-white text-center text-4xl md:text-5xl lg:text-7xl font-bold`">{t('restaurant_page.main_menu_title')}</h2>
             <div className="flex justify-center ...">
                 {mainMenus.map((item, index) => (
-                    <img key={index} src={item.url!} className='h-[890px]'/>
+                    <img key={index} src={item.url!} className='lg:h-[890px]'/>
                 ))}
             </div>
             <br id="snack"/>
             <br/>
             <br/>
-            <h2 className="py-10 text-primary bg-white text-center text-7xl font-bold`">{t('restaurant_page.snack_menu_title')}</h2>
+            <h2 className="py-10 text-primary bg-white text-center text-4xl md:text-5xl lg:text-7xl font-bold`">{t('restaurant_page.snack_menu_title')}</h2>
             <div className="flex justify-center ...">
                 {snackMenus.map((item, index) => (
-                    <img key={index} src={item.url!} className='w-1/2'/>
+                    <img key={index} src={item.url!} className='lg:w-1/2'/>
                 ))}
             </div>
         </div>
