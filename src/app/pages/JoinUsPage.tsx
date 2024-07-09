@@ -3,7 +3,7 @@ import Image from '../interfaces/Image';
 import { useTranslation } from "react-i18next";
 import LocateImageService from "../services/LocateImageService";
 import { ImageSlider } from "../components/ImageSlider";
-import { getUrl, obtenerUrlImagenes } from "../services/FirebaseService";
+import { obtenerUrlImagenes } from "../services/FirebaseService";
 
 export const JoinUsPage = () => {
     const [imagesCarousel, setImagesCarousel] = useState<Image[]>([]);
@@ -22,15 +22,7 @@ export const JoinUsPage = () => {
         const loadTariffImages = async () => {
             try {
                 const tariffImages = await obtenerUrlImagenes("join_us_page", "tariff");
-        
-                    // Obtener URLs para cada imagen usando el path de cada objeto Image
-                    const tariffImagesWithUrl = await Promise.all(
-                        tariffImages.map(async (image) => ({
-                        ...image,
-                        url: await getUrl(image.path) // Obtener la URL real y añadirla al objeto
-                    }))
-                );
-                setTariffImages(tariffImagesWithUrl);
+                setTariffImages(tariffImages);
             } catch (error) {
                 console.error('Error al obtener las imágenes:', error);
             }
@@ -38,15 +30,7 @@ export const JoinUsPage = () => {
         const loadParticipationImages = async () => {
             try {
                 const participationImages = await obtenerUrlImagenes("join_us_page", "participation");
-        
-                    // Obtener URLs para cada imagen usando el path de cada objeto Image
-                    const participationImagesWithUrl = await Promise.all(
-                        participationImages.map(async (image) => ({
-                        ...image,
-                        url: await getUrl(image.path) // Obtener la URL real y añadirla al objeto
-                    }))
-                );
-                setParticipationImages(participationImagesWithUrl);
+                setParticipationImages(participationImages);
             } catch (error) {
                 console.error('Error al obtener las imágenes:', error);
             }

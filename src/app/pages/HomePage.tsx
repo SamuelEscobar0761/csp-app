@@ -3,7 +3,7 @@ import { ImageSlider } from '../components/ImageSlider';
 import { useTranslation } from 'react-i18next';
 import LocateImageService from '../services/LocateImageService';
 import Image from '../interfaces/Image';
-import { Noticia, getUrl, obtenerNoticias, obtenerUrlImagenes } from '../services/FirebaseService';
+import { Noticia, obtenerNoticias, obtenerUrlImagenes } from '../services/FirebaseService';
 import CatalogItem from '../components/CatalogItem';
 
 export const HomePage = () => {
@@ -26,17 +26,10 @@ export const HomePage = () => {
             try {    
                 // Obtener información de imágenes con todos los detalles incluyendo paths
                 const images = await obtenerUrlImagenes(page, "information");
-    
-                // Obtener URLs para cada imagen usando el path de cada objeto Image
-                const infoImagesWithUrls = await Promise.all(
-                    images.map(async (image) => ({
-                        ...image,
-                        url: await getUrl(image.path) // Obtener la URL real y añadirla al objeto
-                    }))
-                );
-    
+
                 // Establecer los estados con los datos cargados
-                setInfo_images(infoImagesWithUrls);
+                setInfo_images(images);
+                console.log(images)
             } catch (error) {
                 console.error('Error al obtener las imágenes:', error);
             }
@@ -58,7 +51,7 @@ export const HomePage = () => {
             if (latestComunicado) {
                 const latestComunicadoWithUrl = {
                     ...latestComunicado,
-                    url: await getUrl(latestComunicado.image) // Obtener la URL real y añadirla al objeto
+                    url: latestComunicado.url
                 };
                 setComunicado(latestComunicadoWithUrl); // Establecer el último comunicado en el estado como un objeto
             } else {

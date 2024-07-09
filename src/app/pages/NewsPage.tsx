@@ -1,4 +1,4 @@
-import { Noticia, getUrl, obtenerNoticias } from "../services/FirebaseService"
+import { Noticia, obtenerNoticias } from "../services/FirebaseService"
 import { useEffect, useState } from "react";
 import Image from '../interfaces/Image';
 import { ImageSlider } from "../components/ImageSlider";
@@ -24,13 +24,7 @@ export const NewsPage = () => {
     useEffect(() => {
         const fetchData = async () => {
           const data = await obtenerNoticias();
-        const dataWithUrl = await Promise.all(
-            data.map(async (noticia) => ({
-                ...noticia,
-                url: await getUrl(noticia.image) // Obtener la URL real y añadirla al objeto
-            }))
-        );
-          setNoticias(dataWithUrl);
+          setNoticias(data);
         };
         fetchData();
       }, []);

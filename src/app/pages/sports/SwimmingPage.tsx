@@ -4,7 +4,7 @@ import { useTranslation } from "react-i18next";
 import Image from '../../interfaces/Image';
 import LocateImageService from "../../services/LocateImageService";
 import LoadingScreen from "../../components/LoadingScreen"; // Asumiendo que tienes este componente
-import { getUrl, obtenerUrlImagenes } from "../../services/FirebaseService";
+import { obtenerUrlImagenes } from "../../services/FirebaseService";
 
 export const SwimmingPage = () => {
     const [imagesCarousel, setImagesCarousel] = useState<Image[]>([]);
@@ -22,17 +22,9 @@ export const SwimmingPage = () => {
                 // Obtener información de imágenes con todos los detalles incluyendo paths
                 const infoImages = await obtenerUrlImagenes(page, "information");
     
-                // Obtener URLs para cada imagen usando el path de cada objeto Image
-                const infoImagesWithUrls = await Promise.all(
-                    infoImages.map(async (image) => ({
-                        ...image,
-                        url: await getUrl(image.path) // Obtener la URL real y añadirla al objeto
-                    }))
-                );
-    
                 // Establecer los estados con los datos cargados
                 setImagesCarousel(carouselImages);
-                setImagesInfo(infoImagesWithUrls);
+                setImagesInfo(infoImages);
             } catch (error) {
                 console.error('Error al obtener las imágenes:', error);
             } finally {

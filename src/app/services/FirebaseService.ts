@@ -1,6 +1,5 @@
 import { initializeApp } from "firebase/app";
 import { getDatabase, ref, get } from "firebase/database";
-import {getStorage, ref as refStorage, getDownloadURL} from "firebase/storage";
 import Image from '../interfaces/Image'
 
 export interface Noticia {
@@ -28,7 +27,6 @@ const firebaseConfig = {
 // Inicializar Firebase
 const app = initializeApp(firebaseConfig);
 const db = getDatabase(app);
-const storage = getStorage();
 
 // Función para obtener todas las noticias
 export const obtenerNoticias = async (): Promise<Noticia[]> => {
@@ -46,7 +44,7 @@ export const obtenerNoticias = async (): Promise<Noticia[]> => {
         description: newsData[key].description,
         date: newsData[key].date,
         image: newsData[key].image,
-        url: null,
+        url: newsData[key].url,
       }));
       return newsArray;
     } else {
@@ -56,17 +54,6 @@ export const obtenerNoticias = async (): Promise<Noticia[]> => {
   } catch (error) {
     console.error('Error al obtener las noticias:', error);
     return [];
-  }
-};
-
-export const getUrl = async (path: string): Promise<string | null> => {
-  try {
-    const fileRef = refStorage(storage, path);
-    const downloadUrl = await getDownloadURL(fileRef);
-    return downloadUrl;  // Esto ahora devuelve la URL de descarga directa
-  } catch (error) {
-    console.error('Error al obtener la URL del file', error);
-    return null;
   }
 };
 
@@ -86,7 +73,7 @@ export const obtenerUrlImagenes = async (pagina: string, componente: string): Pr
                       component: imagesData[key].component,
                       name: imagesData[key].name,
                       path: imagesData[key].path,
-                      url: null  // Inicialmente, url es null hasta que se actualice con la URL real
+                      url: imagesData[key].url  // Inicialmente, url es null hasta que se actualice con la URL real
                   });
               }
           });
@@ -98,23 +85,26 @@ export const obtenerUrlImagenes = async (pagina: string, componente: string): Pr
   }
 };
 
+// Función para obtener PDFs por componente
 export const obtenerDatosPDFs = async (componente: string): Promise<PDF[]> => {
-  const pdfsRef = ref(db, 'pdfs');
+  const pdfsRef = ref(db, 'pdfs');  // Asegúrate de que el path 'pdfs' es correcto según tu base de datos
   try {
     const snapshot = await get(pdfsRef);
     const pdfData = snapshot.val();
     let pdfs: PDF[] = [];
     if (pdfData) {
-      const tasks = Object.keys(pdfData).filter(key => pdfData[key].component === componente)
-        .map(async key => {
-          const pdf = pdfData[key];
-          const url = await getUrl(pdf.path);
-          return {
-            ...pdf,
-            url
-          };
+        // Filtrar por 'componente' y extraer los datos completos que cumplen con la interfaz PDF
+        Object.keys(pdfData).forEach(key => {
+            if (pdfData[key].component === componente && pdfData[key].url) {
+                pdfs.push({
+                    component: pdfData[key].component,
+                    name: pdfData[key].name,
+                    page: pdfData[key].page,
+                    path: pdfData[key].path,
+                    url: pdfData[key].url
+                });
+            }
         });
-      pdfs = await Promise.all(tasks);
     }
     return pdfs;
   } catch (error) {
@@ -122,3 +112,4 @@ export const obtenerDatosPDFs = async (componente: string): Promise<PDF[]> => {
     return [];
   }
 };
+

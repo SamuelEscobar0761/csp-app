@@ -7,7 +7,7 @@ import CatalogItem from "../components/CatalogItem";
 import RecognitionItem from "../components/RecognitionItem";
 import { JumpLine } from "../services/FormatTextService";
 import PdfViewer from "../components/pdf_reader/PdfReader";
-import { getUrl, obtenerDatosPDFs, obtenerUrlImagenes } from "../services/FirebaseService";
+import { obtenerDatosPDFs, obtenerUrlImagenes } from "../services/FirebaseService";
 
 export const AboutUsPage = () => {
     const [images_about_us, setImages_about_us] = useState<Image[]>([]);
@@ -16,14 +16,21 @@ export const AboutUsPage = () => {
     const { t } = useTranslation('ns1');
     const stories = t("about_us_page.stories", { returnObjects: true });
     const directors = t("about_us_page.directory", { returnObjects: true });
-    const pdfPathEstatuto = "pdfs/estatuto.pdf";
-    const [fileUrl, setFileUrl] = useState<string | null>(null);
+    const [statutePdf, setStatutePdf] = useState<PDF[]>([]);
+    const [memoriesPdf, setMemoriesPdf] = useState<PDF[]>([]);
     const [regulationsPdfs, setRegulationsPdfs] = useState<PDF[]>([]);
 
     useEffect(() => {
         const fetchPdfs = async () => {
-            const pdfData = await obtenerDatosPDFs("regulations");
-            setRegulationsPdfs(pdfData);
+            const pdfsRegulationsData = await obtenerDatosPDFs("regulations");
+            const pdfStatuteData = await obtenerDatosPDFs("statute");
+            const pdfMemoriesData = await obtenerDatosPDFs("memories");
+            setRegulationsPdfs(pdfsRegulationsData);
+            
+            setStatutePdf(pdfStatuteData);
+            
+            setMemoriesPdf(pdfMemoriesData);
+            console.log(pdfStatuteData[0].url)
         };
 
         fetchPdfs();
@@ -49,15 +56,8 @@ export const AboutUsPage = () => {
         const loadDirectoryImages = async () => {
             try {
                 const directoryImages = await obtenerUrlImagenes("about_us_page", "directory");
-        
-                    // Obtener URLs para cada imagen usando el path de cada objeto Image
-                    const directoryImagesWithUrl = await Promise.all(
-                        directoryImages.map(async (image) => ({
-                        ...image,
-                        url: await getUrl(image.path) // Obtener la URL real y añadirla al objeto
-                    }))
-                );
-                setDirectorsImages(directoryImagesWithUrl);
+                setDirectorsImages(directoryImages);
+                console.log(directoryImages);
             } catch (error) {
                 console.error('Error al obtener las imágenes:', error);
             }
@@ -65,14 +65,6 @@ export const AboutUsPage = () => {
         loadDirectoryImages();
     }, []);
 
-    useEffect(() => {
-        const fetchPdf = async () => {
-          const url = await getUrl(pdfPathEstatuto);
-          setFileUrl(url);
-        };
-    
-        fetchPdf();
-      }, [pdfPathEstatuto]);
     return(
         <div>
             <ImageSlider images={images_about_us} text={t('about_us_page.carousel')}/>
@@ -112,7 +104,7 @@ export const AboutUsPage = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 gap-4 bg-white p-4">
                 {directors.map((item, index) => (
                     directorsImages.length > 0 && (
-                        <RecognitionItem key={index} sections={1} image={directorsImages[index].url!} title={item.name} subtitle={item.position}/>
+                        <RecognitionItem key={index} sections={1} image={directorsImages[index].url!} title={directorsImages[index].name} subtitle={item.position}/>
                     )
                 ))}
             </div>
@@ -121,7 +113,11 @@ export const AboutUsPage = () => {
             <br/>
             <h2 className={`py-10 text-primary bg-white text-center text-4xl md:text-5xl lg:text-7xl font-bold`}>{t('about_us_page.statute_title')}</h2>
             <div id="pdf-container" className="flex justify-center ...">
-                {fileUrl ? <PdfViewer pdfPath={fileUrl} pdfName="Estatuto"/> : <div>Cargando PDF...</div>}
+                {statutePdf.map((pdf, index) => (
+                    <div key={index}>
+                        <PdfViewer pdfPath={pdf.url} pdfName="Estatuto"/>
+                    </div>
+                ))}
             </div>
             <br id='regulations'/>
             <br/>
@@ -142,7 +138,11 @@ export const AboutUsPage = () => {
             <br/>
             <h2 className={`py-10 text-primary bg-white text-center text-4xl md:text-5xl lg:text-7xl font-bold`}>{t('about_us_page.memories_title')}</h2>
             <div className="flex justify-center ...">
-                {fileUrl ? <PdfViewer pdfPath={fileUrl} pdfName="Memorias"/> : <div>Cargando PDF...</div>}
+                {memoriesPdf.map((pdf, index) => (
+                    <div key={index}>
+                        <PdfViewer pdfPath={pdf.url} pdfName="Memorias"/>
+                    </div>
+                ))}
             </div>
             <br/>
             <br/>

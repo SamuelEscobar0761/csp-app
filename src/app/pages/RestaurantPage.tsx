@@ -3,7 +3,7 @@ import { ImageSlider } from "../components/ImageSlider";
 import { useEffect, useState } from "react";
 import Image from '../interfaces/Image';
 import LocateImageService from "../services/LocateImageService";
-import { getUrl, obtenerUrlImagenes } from "../services/FirebaseService";
+import { obtenerUrlImagenes } from "../services/FirebaseService";
 
 export const RestaurantPage = () => {
     const [imagesCarousel, setImagesCarousel] = useState<Image[]>([]);
@@ -23,15 +23,7 @@ export const RestaurantPage = () => {
         const loadWeeklyMenu = async () => {
             try {
                 const weeklyMenuImages = await obtenerUrlImagenes("restaurant_page", "weekly_menu");
-        
-                    // Obtener URLs para cada imagen usando el path de cada objeto Image
-                    const weeklyMenuImagesWithUrl = await Promise.all(
-                        weeklyMenuImages.map(async (image) => ({
-                        ...image,
-                        url: await getUrl(image.path) // Obtener la URL real y añadirla al objeto
-                    }))
-                );
-                setWeeklyMenus(weeklyMenuImagesWithUrl);
+                setWeeklyMenus(weeklyMenuImages);
             } catch (error) {
                 console.error('Error al obtener las imágenes:', error);
             }
@@ -39,15 +31,7 @@ export const RestaurantPage = () => {
         const loadMainMenu = async () => {
             try {
                 const mainMenuImages = await obtenerUrlImagenes("restaurant_page", "main_menu");
-        
-                    // Obtener URLs para cada imagen usando el path de cada objeto Image
-                    const mainMenuImagesWithUrl = await Promise.all(
-                        mainMenuImages.map(async (image) => ({
-                        ...image,
-                        url: await getUrl(image.path) // Obtener la URL real y añadirla al objeto
-                    }))
-                );
-                setMainMenus(mainMenuImagesWithUrl);
+                setMainMenus(mainMenuImages);
             } catch (error) {
                 console.error('Error al obtener las imágenes:', error);
             }
@@ -55,15 +39,7 @@ export const RestaurantPage = () => {
         const loadSnackMenu = async () => {
             try {
                 const snackMenuImages = await obtenerUrlImagenes("restaurant_page", "snack_menu");
-        
-                    // Obtener URLs para cada imagen usando el path de cada objeto Image
-                    const snackMenuImagesWithUrl = await Promise.all(
-                        snackMenuImages.map(async (image) => ({
-                        ...image,
-                        url: await getUrl(image.path) // Obtener la URL real y añadirla al objeto
-                    }))
-                );
-                setSnackMenus(snackMenuImagesWithUrl);
+                setSnackMenus(snackMenuImages);
             } catch (error) {
                 console.error('Error al obtener las imágenes:', error);
             }

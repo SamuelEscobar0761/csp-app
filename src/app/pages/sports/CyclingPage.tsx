@@ -3,7 +3,7 @@ import { ImageSlider } from "../../components/ImageSlider";
 import { useTranslation } from "react-i18next";
 import Image from '../../interfaces/Image';
 import LocateImageService from "../../services/LocateImageService";
-import { getUrl, obtenerUrlImagenes } from "../../services/FirebaseService";
+import { obtenerUrlImagenes } from "../../services/FirebaseService";
 import LoadingScreen from "../../components/LoadingScreen";
 
 export const CyclingPage = () => {
@@ -23,17 +23,9 @@ export const CyclingPage = () => {
                 const infoImages = await obtenerUrlImagenes(page, "information");
                 console.log(infoImages);
     
-                // Obtener URLs para cada imagen usando el path de cada objeto Image
-                const infoImagesWithUrls = await Promise.all(
-                    infoImages.map(async (image) => ({
-                        ...image,
-                        url: await getUrl(image.path) // Obtener la URL real y añadirla al objeto
-                    }))
-                );
-    
                 // Establecer los estados con los datos cargados
                 setImagesCarousel(carouselImages);
-                setImagesInfo(infoImagesWithUrls);
+                setImagesInfo(infoImages);
             } catch (error) {
                 console.error('Error al obtener las imágenes:', error);
             } finally {
