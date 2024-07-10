@@ -43,21 +43,26 @@ export const HomePage = () => {
             const data = await obtenerNoticias();
             // Filtrar por título 'Comunicado'
             const comunicados = data.filter(noticia => noticia.title === 'Comunicado');
-            // Encontrar el comunicado con el ID más grande
-            const latestComunicado = comunicados.reduce((latest, current) => {
-                return parseInt(latest.id, 10) > parseInt(current.id, 10) ? latest : current;
-            }, comunicados[0]);
     
-            if (latestComunicado) {
-                const latestComunicadoWithUrl = {
-                    ...latestComunicado,
-                    url: latestComunicado.url
-                };
-                setComunicado(latestComunicadoWithUrl); // Establecer el último comunicado en el estado como un objeto
-            } else {
+            if (comunicados.length === 0) {
                 setComunicado(null); // No se encontraron comunicados, establecer el estado a null
+                return;
             }
+    
+            // Encontrar el comunicado más reciente basado en la fecha
+            const latestComunicado = comunicados.reduce((latest, current) => {
+                const latestDate = new Date(latest.date.split('-').reverse().join('-'));
+                const currentDate = new Date(current.date.split('-').reverse().join('-'));
+                return latestDate > currentDate ? latest : current;
+            });
+    
+            const latestComunicadoWithUrl = {
+                ...latestComunicado,
+                url: latestComunicado.url
+            };
+            setComunicado(latestComunicadoWithUrl); // Establecer el último comunicado en el estado como un objeto
         };
+    
         fetchLatestComunicado();
     }, []);
     
