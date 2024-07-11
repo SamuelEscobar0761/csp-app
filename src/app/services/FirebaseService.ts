@@ -46,6 +46,16 @@ export const obtenerNoticias = async (): Promise<Noticia[]> => {
         image: newsData[key].image,
         url: newsData[key].url,
       }));
+
+      // Función auxiliar para convertir una fecha en formato dd-mm-yyyy a un objeto Date
+      const parseDate = (dateStr: string): Date => {
+        const parts = dateStr.split('-');
+        return new Date(parseInt(parts[2]), parseInt(parts[1]) - 1, parseInt(parts[0]));
+      };
+
+      // Ordenar las noticias por fecha, de más reciente a más antigua
+      newsArray.sort((a, b) => parseDate(b.date).getTime() - parseDate(a.date).getTime());
+
       return newsArray;
     } else {
       console.log('No se encontraron noticias.');
@@ -56,6 +66,7 @@ export const obtenerNoticias = async (): Promise<Noticia[]> => {
     return [];
   }
 };
+
 
 // Función para obtener imágenes por página
 export const obtenerUrlImagenes = async (pagina: string, componente: string): Promise<Image[]> => {
