@@ -1,7 +1,7 @@
 import { Carousel } from "@material-tailwind/react";
 import Image from "../interfaces/Image";
 
-export function ImageSlider({ images, text = "" }: { images: Image[]; text?: string }) {
+export function ImageSlider({ images, text = "", homepage }: { images: Image[]; text?: string, homepage?: boolean }) {
   // Verificar si images es un array
   if (!Array.isArray(images)) {
     // Si no es un array, retornar un mensaje de error o un elemento alternativo
@@ -30,10 +30,17 @@ export function ImageSlider({ images, text = "" }: { images: Image[]; text?: str
       {/* Agregar el texto centrado si hay texto */}
       {text && (
         <div className="absolute inset-0 flex items-center justify-center text-center">
-          <p className="text-white lg:text-9xl md:text-7xl text-5xl font-bold"
-             style={{ textShadow: '4px 4px 0 rgba(0, 0, 0, 0.75)' }}>
+          <div className="w-2/3">
+          <p className="text-white lg:text-7xl md:text-5xl text-3xl font-bold"
+             style={{ textShadow: '2px 2px 0 rgba(0, 0, 0, 0.75)' }}>
             {text}
           </p>
+          {homepage &&(<p className="text-white lg:text-5xl md:text-3xl text-xl font-bold"
+             style={{ textShadow: '2px 2px 0 rgba(0, 0, 0, 0.75)' }}>
+            Sea parte de nuestra familia. Cambie su vida.
+          </p>
+          )}
+          </div>
         </div>
       )}
     </div>

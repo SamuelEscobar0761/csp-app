@@ -6,6 +6,8 @@ export default function Footer(){
                 <h1 className="text-primary text-xl md:text-3xl lg:text-5xl mb-2">Club Social Petrolero</h1>
                 <p className="text-primary text-base md:text-lg lg:text-xl">Dirección: Calle 15 de Calacoto. Av. Los Sauces Nº945</p>
                 <p className="text-primary text-base md:text-lg lg:text-xl">Contacto: 2792413 - 2790165</p>
+                <a className="text-primary text-base md:text-lg lg:text-xl underline" href="https://wa.me/59169850980">Whatsapp: 69850980</a>
+                <p className="text-primary text-base md:text-lg lg:text-xl">Correo electrónico: info@club-petrolero.org</p>
             </div>
         </div>
     );
